@@ -31,12 +31,29 @@
     <button id="btn1">滚动到第5条对话</button>
     <p/>
     <input type="text" id="content"/>
-    <button id="btn2">发送</button>
+    <button id="btn2" onclick="sendMessage()">发送</button>
 
-
+    <!-- 课堂练习：模拟完成聊天页面 -->
     <script>
         document.querySelector("#btn1").onclick = function() {
             document.querySelectorAll("ul li")[4].scrollIntoView(false) ;
+        }
+
+        function sendMessage() {
+            // 第一：获取文本框中的内容
+            let message = document.querySelector("#content").value ;
+
+            // 第二：创建li节点 <li>adsfadf</li>
+            let liNode = document.createElement("li") ;
+
+            // 第三：把文本框中的内容添加到li节点
+            liNode.innerText = message ;
+
+            // 第四：把li节点添加到ul节点中
+            document.querySelectorAll("ul")[0].appendChild(liNode) ;
+
+            // 第五：定位
+            liNode.scrollIntoView(false) ;
         }
       </script>
 </body>
