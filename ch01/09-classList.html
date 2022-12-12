@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p class="aa" align="center">好好学习，天天向上</p>
+    
+    <button id="btn" onclick="qh()">切换</button>
+
+    <script>
+        // // 第一：选择要操作的节点 
+        // var pNode = document.querySelector("p") ;
+      
+        // // 第二：调用节点对象的属性或方法进行相关的操作
+        // // classList：对节点对象中的class属性进行相关的操作
+        // var classListObj = pNode.classList ;
+
+        // console.log(classListObj.length);
+
+        // // 添加类名
+        // classListObj.add("bb");
+
+        // // 删除类名
+        // classListObj.remove("aa");
+
+        // // 替换类名（修改）
+        // classListObj.replace("bb","gg")
+
+        // // 判断是否存在某个类名
+        // var bl = classListObj.contains("gg");
+        // console.log(bl);
+
+        // // 获取下标索引对应的类名
+        // var item = classListObj.item(0) ;
+        // console.log(item);
+
+       
+        function qh() {
+            // 第一：选择要操作的节点 
+            var pNode = document.querySelector("p") ;
+        
+            // 第二：调用节点对象的属性或方法进行相关的操作
+            // classList：对节点对象中的class属性进行相关的操作
+            var classListObj = pNode.classList ;
+
+            // 添加/删除类名
+            classListObj.toggle("gg");
+        }
+
+        
+    </script>
+</body>
+</html>

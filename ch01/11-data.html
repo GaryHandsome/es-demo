@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p id="gg" data-size="100" data-user="{name:'zs',age:18}">
+        好好学习，天天向上
+    </p>
+
+    <script>
+        var p = document.querySelector("#gg") ;
+
+        // 100
+        console.info(p.dataset.size)
+
+        // 需要JSON格式的把data属性值，转换为JSON对象，否则输出undefined
+        // console.info(typeof p.dataset.user)
+        var jsonStr = p.dataset.user ;
+
+        var user = eval("(" + jsonStr + ")") ;
+        console.log("帐号："+user.name);
+        console.log("年龄："+user.age);
+
+
+
+        
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p>你好</p>
+    <p class="wh">我好</p>
+    <p id="djh">大家好</p>
+
+    <div>
+        <p>大家好才是真的好</p>
+    </div>
+
+    <script>
+        // 根据 CSS选择器 选择页面中匹配的节点集合 - NodeList 对象（数组）
+        // 如果没有匹配，则返回null
+        
+        var pNode = document.querySelectorAll("p") ;
+      
+        console.log(pNode.length);
+
+        for(var i=0;i<pNode.length;i++) {
+            pNode[i].style = "color:red"
+        }
+
+
+    </script>
+</body>
+</html>

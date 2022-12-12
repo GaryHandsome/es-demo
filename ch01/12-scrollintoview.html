@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul {
+          height: 70px;
+          width:200px;
+          /* 设置垂直方向开启滚动条 */
+          overflow-y: scroll;
+        }
+      
+        ul li {
+          height: 25px;
+          line-height: 25px;
+        }
+      </style>
+</head>
+<body>
+    <ul>
+        <li>对话1</li>
+        <li>对话2</li>
+        <li>对话3</li>
+        <li>对话4</li>
+        <li>对话5</li>
+        <li>对话6</li>
+        <li>对话7</li>
+    </ul>
+      
+    <button id="btn1">滚动到第5条对话</button>
+    <p/>
+    <input type="text" id="content"/>
+    <button id="btn2">发送</button>
+
+
+    <script>
+        document.querySelector("#btn1").onclick = function() {
+            document.querySelectorAll("ul li")[4].scrollIntoView(false) ;
+        }
+      </script>
+</body>
+</html>

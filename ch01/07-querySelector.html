@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p>你好</p>
+    <p class="wh">我好</p>
+    <p id="djh">大家好</p>
+
+    <div>
+        <p>大家好才是真的好</p>
+    </div>
+
+    <script>
+        // 根据 CSS选择器 选择页面中唯一匹配的节点
+        // 如果有多个匹配，则返回匹配的第一个节点对象
+        // 如果没有匹配，则返回null
+        // var pNode = document.querySelector("p") ;
+        // var pNode = document.querySelector(".wh") ;
+        // var pNode = document.querySelector("#djh") ;
+        var pNode = document.querySelector("div p") ;
+
+        pNode.style = "color:red"
+       
+
+    </script>
+</body>
+</html>
