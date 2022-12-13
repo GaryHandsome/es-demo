@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <!--
+        可以通过回调函数，把某个函数的职责或功能分给另一个函数实现
+
+        实现了职责的分离，而且从以下案例可以发现，职责是不确定的或多样的，
+        通过不同的回调函数实现不一样的功能
+
+    -->
+
+    <script>
+        // 定义函数，实现参数加1返回
+        function addOne(a) {
+            return a + 1 ;
+        }
+        // 实现数据增加两倍后加1 ，调用回调函数addOne实现
+        function multiplyByTwo(a,b,c,callback) {
+            var i,arr=[] ;
+            for(i=0;i<3;i++) {
+                arr[i] = callback(arguments[i] * 2) ;
+            }
+            return arr ;
+        }
+
+        // 非匿名回调函数
+        var jg1 = multiplyByTwo(1,2,3,addOne) ;
+        console.log(jg1)
+
+        // 匿名回调函数
+        var jg2 = multiplyByTwo(1,2,3,function(a){
+            return a + 2 ;
+        }) ;
+        console.log(jg2)
+
+
+    </script>
+
+
+
+
+
+
+</body>
+</html>

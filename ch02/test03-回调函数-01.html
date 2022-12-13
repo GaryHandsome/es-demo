@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+    <script>
+        // 第一：定义函数 - 业务、功能、职责
+        function fun(a,b) {
+            // a = 100
+            // b = function(){return 200 ;}
+            return a + b() ;
+        }
+
+        function data() {
+            return 300 ;
+        }
+
+        // 第二：使用函数
+        var jg1 = fun(100,function(){
+            return 200 ;
+        }) ;
+
+        var jg2 = fun(500,data);
+
+        console.log(jg1)
+        console.log(jg2)
+
+
+    </script>
+
+
+
+
+
+
+</body>
+</html>
