@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        递归函数 - 自己调用自己的函数，必须指定退出递归的条件
+
+        递归有两个过程，分别是：递进和回归
+
+        arguments.callee：就是函数本身，可用于递归调用自己
+    -->
+
+    <script>
+        // 第一：定义函数 - 业务、功能、职责
+        // n表示数列第几个项
+        function fb(n) {
+            // 如果是第一项或第二项，则返回1
+            if (n === 1 || n === 2) {
+                return 1;
+            }
+            // 如果不是第一项或第二项，则返回前两项之和
+            return arguments.callee(n - 1) + arguments.callee(n - 2);
+        }
+
+        // 第二：使用函数
+        console.log(fb(5));
+
+
+    </script>
+
+
+
+
+
+
+</body>
+</html>
