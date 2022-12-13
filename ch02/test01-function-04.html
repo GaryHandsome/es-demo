@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        arguments的使用 - 计算N个数的和 - 不定长参数
+    -->
+
+    <script>
+        // 第一：定义函数 - 业务、功能、职责
+        function qiuHe() {
+            var he = 0 ;
+
+            for(var i=0;i < arguments.length ; i++) {
+                he = he + arguments[i] ;
+            }
+
+            return he ;
+        }
+
+        // 第二：使用函数
+        var he = qiuHe(100,200) ;
+        console.log("返回值：" + he)
+
+
+    </script>
+
+
+
+
+
+
+</body>
+</html>

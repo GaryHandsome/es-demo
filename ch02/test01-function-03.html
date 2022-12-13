@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        arguments的使用
+    -->
+
+    <script>
+        // 第一：定义函数 - 业务、功能、职责
+        function qiuHe(num1,num2) {
+            console.log("第一个参数的值：" + num1)
+            console.log("第二个参数的值：" + num2)
+
+            console.log("第一个参数的值：" + arguments[0])
+            console.log("第二个参数的值：" + arguments[1])
+        }
+
+        // 第二：使用函数
+        var he = qiuHe(100,200) ;
+        console.log("返回值：" + he)
+
+
+    </script>
+
+
+
+
+
+
+</body>
+</html>
