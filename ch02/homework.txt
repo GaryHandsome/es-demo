@@ -1,0 +1,22 @@
+1、定义函数，实现输入长、宽，计算其面积。
+思考：如果希望同时返回面积和周长，怎么处理？
+
+
+2、定义函数jqueryPost,模拟jQuery中的$.post方法，语法格式如下：
+    jqueryPost('url','{weight:18}',function(data){
+
+    })
+
+    jqueryPost("https://www.baidu.com/add.do",'{weight:18}',function(data){
+
+    }) ;
+
+    要求如下：
+    1）验证url地址必须以http或https开始,否则抛出异常
+
+    2）定义三条记录，信息有：
+    姓名,性别,年龄,体重
+
+    3）获取第二个参数的体重，实现体重相加
+
+    4）在回调函数中，使用表格显示三条记录的数据

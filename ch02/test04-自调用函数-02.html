@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <!--
+       自调用(立即执行函数)
+
+    -->
+
+    <script>
+
+
+        var aa = function(name) {
+            console.log("你好,"+name) ;
+        }
+        aa("张三") ;
+
+        ;(function(name){
+            console.log("你好，"+name)
+        })('李四');
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+</body>
+</html>
