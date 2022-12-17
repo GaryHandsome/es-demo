@@ -5,6 +5,17 @@
     <title>Title</title>
 </head>
 <body>
+
+    <table id="tbl" border="1" width="80%" align="center">
+        <tr>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>年龄</th>
+            <th>体重</th>
+        </tr>
+
+    </table>
+
   <script>
     /**
      * 模拟 $.post()方法
@@ -33,7 +44,8 @@
         for(let i=0;i<users.length;i++) {
             users[i].weight = users[i].weight + data.weight;
         }
-        // 4）在回调函数中，使用表格显示三条记录的数据 - 把函数的某个责任或功能分离出去
+        // 4）在回调函数中，使用表格显示三条记录的数据 - 把函数的某个责任或功能分离出去,模拟实现多态
+        // 执行回调函数，但是回调是怎么样的？不知道 - 因此，可以通过传递不同的回调函数可以有不同的解决方案（模拟多态）
         fun(users) ;
     }
     // 使用方法一：非匿名回调函数（不建议）
@@ -43,8 +55,43 @@
     // jqueryPost("https://www.baidu.com",{weight:20},printToTable) ;
 
     // 方法二：匿名回调函数 - $.post("add.od",{},function(){})
+    // 方案一（数据在控制台输出）
     jqueryPost("https://www.baidu.com",{weight:20},function( users ){
         console.log(users)
+    }) ;
+
+    // 方案二（数据在页面中，以表格的方式输出） - 原生 JavaScript DOM操作
+    jqueryPost("https://www.baidu.com",{weight:20},function( users ){
+        // 获取要操作的 table 节点
+        let table = document.querySelector("#tbl") ;
+
+        // 循环遍历 users
+        for(let i=0;i<users.length;i++) {
+            // 创建 tr 节点
+            let tr = document.createElement("tr");
+
+            // 创建各个 td 节点，并设置相关的数据
+            let td1 = document.createElement("td");
+            td1.innerText = users[i].name;
+
+            let td2 = document.createElement("td");
+            td2.innerText = users[i].sex;
+
+            let td3 = document.createElement("td");
+            td3.innerText = users[i].age;
+
+            let td4 = document.createElement("td");
+            td4.innerText = users[i].weight;
+
+            // 把各个 td 节点，添加到 tr 节点中
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+            tr.appendChild(td4);
+
+            // 把各个 tr 节点，添加到 table节点中
+            table.appendChild(tr) ;
+        }
     }) ;
 
 
