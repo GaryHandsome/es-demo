@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <script>
+    /**
+     * 模拟 $.post()方法
+     * url:请求地址
+     * data：传递过来的数据
+     * fun：回调函数
+     */
+    function jqueryPost(url,data,fun) {
+        // 1）验证url地址必须以http或https开始,否则抛出异常 - 正则表达式
+        // https://www.baidu.com
+        let reg = /^(http)|^(https).{5,}/ ;
+        if(!reg.test(url)) {
+            // 抛出异常后，程序马上终止，不再继续往下执行
+            throw {
+              name:'URLError',
+              message:'错误的URL地址，地址必须以http开始或以https开始'
+            }
+        }
+        // 2）定义三条记录，信息有：姓名,性别,年龄,体重
+        let users = [
+            {name:'zs',sex:'男',age:18,weight:100},
+            {name:'ls',sex:'女',age:28,weight:200},
+            {name:'ww',sex:'男',age:38,weight:300}
+        ] ;
+        // 3）获取第二个参数的体重，实现体重相加 - {weight:10} - data = {weight:10}
+        for(let i=0;i<users.length;i++) {
+            users[i].weight = users[i].weight + data.weight;
+        }
+        // 4）在回调函数中，使用表格显示三条记录的数据 - 把函数的某个责任或功能分离出去
+        fun(users) ;
+    }
+    // 使用方法一：非匿名回调函数（不建议）
+    // function printToTable(users) {
+    //     // ....
+    // }
+    // jqueryPost("https://www.baidu.com",{weight:20},printToTable) ;
+
+    // 方法二：匿名回调函数 - $.post("add.od",{},function(){})
+    jqueryPost("https://www.baidu.com",{weight:20},function( users ){
+        console.log(users)
+    }) ;
+
+
+  </script>
+</body>
+</html>
