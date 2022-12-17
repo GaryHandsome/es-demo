@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        因为一个函数可以返回一个函数，因此，我们可以通过函数的返回函数替换原函数这种方式来重写原函数的功能
+    -->
+  <script>
+      let a  = function() {
+          alert("AA") ;
+
+          // 返回值为函数，因此a函数就是返回函数的函数
+          return function() {
+              alert("BB") ;
+          }
+      }
+
+      // a() ;
+      // a() ;
+
+      // 先输出AA，然后fun接收函数的返回值，也就是：fun = function() {alert("BB")}
+      let fun = a() ;
+      // 输出BB
+      fun() ;
+      a = fun ;
+
+      // 调用a函数，同时a函数的返回值替换了原来的a函数，从而实现了a函数的重写
+      a = a() ;
+      a();
+
+  </script>
+</body>
+</html>

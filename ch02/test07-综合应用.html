@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        综合前面知识点
+    -->
+  <script>
+      // 自调用函数
+      // 语法一
+      // ;(function() {
+      //     alert("OK") ;
+      // })() ;
+
+      // 语法二：文本标记定义 + 自调用函数
+      // let aa = function(){
+      //     alert("OK") ;
+      // }() ;
+
+
+      let setup = 0 ;
+      // 自调用函数
+      let a = function() {
+
+          // 内部（私有）函数 - 做一些初始化的工作（只做一次）
+          function someSetup(){
+              alert('AA-可以实现一些初始化工作') ;
+              setup = 100 ;
+          }
+
+          // 内部（私有）函数 - 实现具体的业务功能（做N次）
+          function actualWork(){
+              alert('BB-实现具体的业务功能');
+          }
+
+          // 调用内部函数
+          someSetup() ;
+
+          // 返回函数的函数
+          return actualWork ;
+
+      }();
+
+      a() ;
+      a() ;
+      a() ;
+
+      console.log(setup)
+
+  </script>
+</body>
+</html>

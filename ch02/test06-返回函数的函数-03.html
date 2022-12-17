@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        因为一个函数可以返回一个函数，因此，我们可以通过函数的返回函数替换原函数这种方式来重写原函数的功能
+    -->
+  <script>
+      let a  = function() {
+          // 在这里可以实现一些初始化工作（前期的工作、准备） -- 只做一次
+          alert("AA - 初始化工作（只做一次）") ;
+
+          // 在函数的内部重写 - 此后，我们可以实现函数后续或具体的一些功能
+          a = function() {
+              alert("BB - 具体的功能或后续操作(多次)") ;
+          }
+      }
+
+      // 调用a函数，同时a函数的返回值替换了原来的a函数，从而实现了a函数的重写
+      a() ;     // AA
+
+      a() ;     // BB
+      a() ;     // BB
+      // ...    // BB
+
+  </script>
+</body>
+</html>
