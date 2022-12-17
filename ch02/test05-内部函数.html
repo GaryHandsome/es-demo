@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        内部（私有）函数：在函数内嵌套定义的函数 - 只能在定义函数的内部使用
+    -->
+  <script>
+
+
+      function outer(data1) {
+
+          // 内部（私有）函数：在函数内嵌套定义的函数 - 只能在定义函数的内部使用
+          function inner(data2) {
+              return data2 * 2 ;
+          }
+
+          let jg = data1 + inner(3) ;
+
+          return "结果为：" + jg ;
+      }
+
+      console.log(outer(100)) ;
+
+
+  </script>
+</body>
+</html>

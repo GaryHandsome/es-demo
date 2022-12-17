@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+            返回函数的函数：函数的返回值为函数，这样的函数称之为返回函数的函数
+
+            思考：为什么函数的返回值可以为函数呢？  --- 在JavaScript中，函数就是数据（特殊）
+    -->
+  <script>
+      function a() {
+          alert("AA") ;
+
+          // 返回值为函数，因此a函数就是返回函数的函数
+          return function() {
+              alert("BB") ;
+          }
+      }
+
+      // let fun = a() ;
+      // fun() ;
+
+      a()() ;
+
+  </script>
+</body>
+</html>
