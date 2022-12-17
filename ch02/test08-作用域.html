@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+      作用域
+        函数作用域（支持）
+        块级作用域（不支持）
+
+    -->
+    <script>
+      // 全局变量：在函数外定义的变量，作用于从定义的位置开始，到最后
+      var global = 100 ;
+
+      function f() {
+        // 局部变量：在函数内定义的变量，只作用于当前函数
+        // 在JavaScript中，它支持函数作用域
+        var a = 1 ;
+
+        // 注意：在JavaScript中，它不存在大括号级的作用域（块级作用域）
+        for(var i=1;i<=10;i++) {
+          var k = 200 ;
+          document.write("你好") ;
+        }
+
+        // 思考：在Java中，能否访问变量i和k - 能
+        // JavaScript可以访问，因为JavaScript不支持块级作用域
+        console.log(i) ;	// 变量i可以访问，11
+        console.log(k) ;	// 变量k可以访问，200
+      }
+
+      // 调用函数
+      f() ;
+
+      // 输出200
+      console.log(global)
+
+      // 错误，函数内的变量，函数外不能访问
+      console.log(a) ;
+    </script>
+</body>
+</html>

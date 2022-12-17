@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+      作用域链
+
+        在下面的代码中，函数n()既可以访问自身的变量c，也可以访问“父级”函数f()中的变量b，
+        同时，还可以访问全局的变量a，这种形式就叫“作用域链”。
+    -->
+    <script>
+        // 全局变量
+        var a = 1 ;
+
+        function f() {
+            // 局部变量
+            var b = 2 ;
+
+            // 内部函数
+            function n() {
+                // 局部变量
+                var c = 3 ;
+
+                // ...
+                // function  z() {
+                //     var d = 4 ;
+                // }
+            }
+
+            // ... -----
+        }
+
+        // ...
+    </script>
+</body>
+</html>

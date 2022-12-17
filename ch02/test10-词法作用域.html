@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+      词法作用域
+
+      在JavaScript中，函数是词法作用域的。
+      也就是说，每个函数在被定义时（而非执行时）都会创建一个属于自己的环境（即作用域）。
+
+
+
+    -->
+    <script>
+        // var a = 100 ;
+
+        function f1() {
+            var a = 1 ;
+            f2() ;
+        }
+
+        function f2() {
+            // 变量a在函数f2中并没有声明
+            return a ;
+        }
+
+        console.log(f1())
+    </script>
+</body>
+</html>
