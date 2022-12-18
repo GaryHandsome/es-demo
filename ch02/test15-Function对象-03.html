@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        Function对象：JavaScript内置对象，对函数进行相关的封装
+
+
+        call、apply、bind三者的异同
+            ●  共同点 : 都可以改变this指向
+            ●  不同点:
+              ○ call 和 apply  会调用函数, 并且改变函数内部this指向.
+              ○ call 和 apply传递的参数不一样，call传递参数使用逗号隔开，apply使用数组传递
+              ○ bind 不会调用函数，可以改变函数内部this指向.
+            ●  应用场景
+              ○ call 经常做继承
+              ○ apply经常跟数组有关系。比如借助于数学对象实现数组最大值最小值
+              ○ bind 不调用函数，但是还想改变this指向，比如改变定时器内部的this指向
+    -->
+    <script>
+        // 定义函数 - test - Function对象（call、apply、bind）
+        function test(a,b,c) {
+            // this：当前对象，默认this代表全局对象(window)
+            console.log(this) ;
+
+            console.log("第一个参数值：" + a) ;
+            console.log("第二个参数值：" + b) ;
+            console.log("第三个参数值：" + c) ;
+        }
+
+        // 调用方法 - 常规调用 - this默认是window对象
+        // test(11,22,33) ;
+
+        // 自定义一个对象 - 用于替换函数this的默认指向
+        var stu = {
+            name:'zs',
+            age:18
+        }
+
+        // 调用方法 - 非常规调用方法 - 使用Function对象中的call方法来调用方法
+        // 调用test方法，同时修改函数内this默认指向stu对象
+        test.call(stu,55,66,77) ;
+
+    </script>
+</body>
+</html>

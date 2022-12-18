@@ -7,12 +7,10 @@
 <body>
     <!--
         闭包实现数据的缓存
-
-
     -->
     <script>
         var userDao = function() {
-            // 空对象
+            // 空对象 - 常驻内存
             var cached = {} ;
             var n = 1 ;
 
@@ -36,14 +34,14 @@
             }
         }() ;
 
-        var u = userDao.getById(1);
-        console.log(u)
+        var u1 = userDao.getById("one");
+        console.log(u1)
 
-        var u = userDao.getById(1);
-        console.log(u)
+        var u2 = userDao.getById("one");
+        console.log(u2)
 
-        var u = userDao.getById(2);
-        console.log(u)
+        var u3 = userDao.getById("two");
+        console.log(u3)
 
     </script>
 </body>

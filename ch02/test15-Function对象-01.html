@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        Function对象：JavaScript内置对象，对函数进行相关的封装
+
+        constructor属性：获取对象构造函数的引用
+    -->
+    <script>
+        // 定义函数（构造方法）
+        function Hero(name) {
+            this.name = name ;
+        }
+
+        // 创建对象
+        var h1 = new Hero('super Man') ;
+        console.log(h1)
+
+        // constructor属性返回对象构造函数引用 == Hero()
+        // console.log(h1.constructor) ;
+
+        // 通过constructor创建对象h2
+        var h2 = new h1.constructor('zing') ;
+        console.log(h2)
+
+        // 测试一个对象是否由指定的构造函数所创建
+        console.log(h1 instanceof Hero) ;
+        console.log(h2 instanceof Hero) ;
+
+
+
+    </script>
+</body>
+</html>
