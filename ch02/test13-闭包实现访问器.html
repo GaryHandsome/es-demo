@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        使用闭包实现访问器 - setter/getter方法实现
+    -->
+    <script>
+        // 第一：定义外部函数，并封装相关的变量
+        // 第四：自调用函数，使用一个变量接收，便于再次使用（重写函数） - stu（由函数被重写为对象[包含两闭包函数]）
+        var stu = function() {
+            // 变量 - 常驻内存
+            var age = 0 ;
+
+            // 第二：定义内部函数，并对外部函数的变量进行访问，根据不同的需要进行相应的处理
+            // 第三：在外部函数内返回内部函数 - 多个，使用对象
+            return {
+                getAge : function() {
+                    return age ;
+                },
+                setAge : function(value) {
+                    if(!isNaN(value) && value>=1 && value<=150) {
+                        age = value ;
+                    } else {
+                        throw '年龄必须在1-150之间的数值'
+                    }
+                }
+            }
+        }() ;
+        // 直接访问函数内部变量--失败，返回undefined
+        console.log(stu.age) ;
+
+        // 设置数据
+        stu.setAge(100);
+
+        // 获取数据
+        console.log(stu.getAge())
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        闭包实现数据的缓存
+
+
+    -->
+    <script>
+        var userDao = function() {
+            // 空对象
+            var cached = {} ;
+            var n = 1 ;
+
+            return {
+                getById : function(id) {
+                    // 判断 cached 对象是否存在 id 参数对应的属性名称
+                    // 如果存在，则动态的获取 id 参数对应的属性值
+                    if(id in cached) {
+                        console.log("缓存获取")
+                        return cached[id]  ;
+                    } else {
+                        console.log("新数据")
+                        // 如果不存在属性，则需要动态添加新的属性以及属性值
+                        cached[id] = {
+                            name : '姓名' + n++,
+                            id : id
+                        }
+                        return cached[id];
+                    }
+                }
+            }
+        }() ;
+
+        var u = userDao.getById(1);
+        console.log(u)
+
+        var u = userDao.getById(1);
+        console.log(u)
+
+        var u = userDao.getById(2);
+        console.log(u)
+
+    </script>
+</body>
+</html>

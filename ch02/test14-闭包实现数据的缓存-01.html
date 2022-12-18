@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        闭包实现数据的缓存
+
+        in：判断对象中，是否存在某个属性
+
+        获取对象的属性值
+            对象名称.属性名称
+            对象名称[属性名称] - 在中括号里支持运算
+    -->
+    <script>
+        // 创建一个对象 - 文本标记法
+        var user = {
+            id:'1001',
+            name:'张三'
+        }
+
+        console.log("id" in user);
+        console.log("age" in user);
+        console.log(user.name);
+        console.log(user["id"]);
+
+
+    </script>
+</body>
+</html>

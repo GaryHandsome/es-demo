@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        返回多个闭包函数 - 借助对象或数组实现
+    -->
+    <script>
+        // 外部函数、自调用函数、重写函数
+        var counter = function() {
+            // 局部函数：此变量i一直驻留在内存中
+            var i = 0 ;
+
+            // 内部函数 - 闭包函数 - 内鬼 - 破坏了作用域链
+            return {
+                m1:function() {
+                    return ++i ;
+                },
+                m2:function() {
+                    return i+=2 ;
+                },
+                m3:function() {
+                    return i+=3 ;
+                }
+            }
+        }() ;
+        console.log(counter.m1()) ;		// 1
+        console.log(counter.m2()) ;		// 3
+        console.log(counter.m3()) ;		// 6
+    </script>
+</body>
+</html>
