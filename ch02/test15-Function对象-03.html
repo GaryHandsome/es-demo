@@ -6,19 +6,26 @@
 </head>
 <body>
     <!--
-        Function对象：JavaScript内置对象，对函数进行相关的封装
+        Function对象：
+            JavaScript内置对象，对函数进行相关的封装
+            而自定义函数是一个函数，因此会继承自Function对象的属性和方法
+            也就是说，每个JavaScript函数实际上都是一个Function对象
+
+            语法：自定义函数.Function对象的属性和方法
 
 
-        call、apply、bind三者的异同
-            ●  共同点 : 都可以改变this指向
-            ●  不同点:
-              ○ call 和 apply  会调用函数, 并且改变函数内部this指向.
-              ○ call 和 apply传递的参数不一样，call传递参数使用逗号隔开，apply使用数组传递
-              ○ bind 不会调用函数，可以改变函数内部this指向.
-            ●  应用场景
-              ○ call 经常做继承
-              ○ apply经常跟数组有关系。比如借助于数学对象实现数组最大值最小值
-              ○ bind 不调用函数，但是还想改变this指向，比如改变定时器内部的this指向
+            call、apply、bind三者的异同
+                ●  共同点 : 都可以改变this指向
+
+                ●  不同点:
+                  ○ call 和 apply  会调用函数, 并且改变函数内部this指向.
+                  ○ call 和 apply 传递的参数不一样，call传递参数使用逗号隔开，apply使用数组传递
+                  ○ bind 不会调用函数，可以改变函数内部this指向.
+
+                ●  应用场景
+                  ○ call 经常做继承
+                  ○ apply 经常跟数组有关系。比如借助于数学对象实现数组最大值最小值
+                  ○ bind 不调用函数，但是还想改变this指向，比如改变定时器内部的this指向
     -->
     <script>
         // 定义函数 - test - Function对象（call、apply、bind）
@@ -42,7 +49,14 @@
 
         // 调用方法 - 非常规调用方法 - 使用Function对象中的call方法来调用方法
         // 调用test方法，同时修改函数内this默认指向stu对象
-        test.call(stu,55,66,77) ;
+        // test.call(stu,55,66,77) ;
+        // test.apply(stu,[55,66,77]) ;
+
+        // 注意：bind不会调用test方法 - 返回一个新的，改变后的方法，如果需要调用，则调用新方法即可
+        var fun = test.bind(stu,55,66,77) ;
+        fun() ;
+
+
 
     </script>
 </body>
