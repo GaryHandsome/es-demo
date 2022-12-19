@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        实例化对象方式三：类创建 - 与Java语法几乎一样
+
+        // 第一：定义类
+        class 类名 {
+            // 构造方法
+            constructor(参数列表) {
+                // 1.属性：描述对象的特征，使用变量实现
+                this.属性 = 值 ;
+                ...
+            }
+
+            // 2.行为：描述对象的动作、操作功能，使用方法实现
+            方法名([参数列表]) {
+                ...
+            }
+
+        }
+
+        // 第二：创建对象
+        var 对象名  = new 类名(参数列表) ;
+
+        // 初始化属性
+        对象名.属性 = 值 ;
+
+        // 调用方法
+        对象名.方法([参数列表]) ;
+
+    -->
+    <script>
+        // 第一：定义类
+        // 注意：类中的属性在构造方法中定义
+        class Student {
+            // 1.构造方法 - 接收参数（数据），初始化对象
+            constructor(name,sex,score) {
+                // 2.属性：描述对象的特征，使用变量实现
+                this.name = name ;
+                this.sex = sex ;
+                this.score = score ;
+            }
+
+            // 3.行为：描述对象的动作、操作功能，使用方法实现
+            study(hour) {
+                console.log(this.name + "学习了" + hour +"小时") ;
+            }
+            eat() {
+                console.log("吃")
+            }
+            // ...
+        }
+
+
+        // 第二：实例化对象
+        // var cgf  = new Student("陈广锋","男",99) ;
+        var cgf  = new Student() ;
+
+        // 第三：初始化对象
+        cgf.score = 98 ;
+
+        // 第四：调用方法，实现相关的操作
+        cgf.study(4);
+        cgf.eat();
+
+        console.log(cgf)
+
+
+    </script>
+</body>
+</html>

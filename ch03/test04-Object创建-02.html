@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        实例化对象方式四：Object创建 -- 特点：分散式定义
+
+        // 第一：创建一个空对象
+        var obj = new Object() ;
+        var obj = new Object(数据) ; // 等同于new Number(100)
+        var obj = new Object({属性:值,...,属性:值}) ;
+
+        // 第二：定义属性
+        obj.属性 = 值 ;
+
+        // 第三：定义行为
+        obj.方法名 = function([参数列表]) {
+          ...
+        }
+    -->
+    <script>
+        var cgf = new Object({
+            name:'陈',
+            age:18,
+            sex:'男',
+            eat:function(){
+                console.log('吃')
+            }
+        }) ;
+
+        console.log(cgf)
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        实例化对象方式二：文本标记法 - 简单、粗爆 - JSON字符串
+
+        var 对象名 = {
+            名称1:值 ,
+            ...
+            名称1:值
+        }
+
+        说明：
+            {}：表示对象
+            []：表示数组
+            function(){} : 表示函数
+            "" 或 ''：字符串
+            数值(Number)、布尔值（true | false）
+
+
+       JSON字符串 与 JavaScript对象之间的转换
+            eval - 不建议使用，有安全隐藏
+
+            JSON.stringify()：把 JavaScript 对象转换为 JSON 字符串
+            JSON.parse()：把 JSON 字符串转换为JavaScript 对象
+
+    -->
+    <script>
+        // 自定义JavaScript对象
+        var cgf = {
+            // 1.定义对象的属性 - 描述对象的特征 - 相关数据
+            name: "陈广锋",
+            sex: '男'
+        }
+
+        // 定义 JSON 字符串
+        var cgfStr = '{"name":"陈广锋","sex":"男"}' ;
+
+        // 把 Javascript 对象转换为 JSON 字符串
+        var jsonStr = JSON.stringify(cgf);
+        console.log(typeof jsonStr)
+        console.log(jsonStr)
+
+        // 把 JSON 字符串转换为 Javascript 对象
+        var obj = JSON.parse(cgfStr);
+        console.log(typeof obj)
+        console.log(obj)
+
+
+
+    </script>
+</body>
+</html>
