@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        实例化对象方式一：构造方法
+    -->
+    <script>
+        // 第一：定义构造方法 - 休息十分钟，准时回来
+        // 规范：首字母大写
+        // this：表示当前对象，当实例化对象时，this表示的就是实例化的那个对象
+        function Student(name,sex,age,score) {
+            // 1.属性：描述对象的特征，使用变量实现
+            this.name = name ;
+            this.sex = sex ;
+            this.age = age ;
+            this.score = score ;
+
+            // 2.行为：描述对象的动作、操作功能，使用方法实现
+            this.study = function( hour ) {
+                console.log(this.name + "学习了" + hour +"小时")
+            }
+
+            // 也可以指定外部方法作为对象的行为（不建议）
+            this.eat = chi ;
+
+            // 构造方法名.静态变量 = 值 ;
+            Student.GUOJI = "中国" ;
+
+            // 构造方法名.静态方法 = function([参数列表]) {
+            //
+            // }
+
+            Student.sleep = function() {
+                console.log("睡觉")
+            }
+        }
+
+        function chi() {
+            console.log("吃")
+        }
+        
+        // 第二：实例化对象
+        // var | let 对象名称 = new 构造方法([实参列表])
+        var cgf = new Student("陈广锋","男",18,99);
+
+        console.log(cgf)
+        cgf.study(8) ;
+        cgf.eat()
+
+        // 直接通过构造方法名称来调用静态的成员
+        console.log(Student.GUOJI)
+        Student.sleep()
+
+        // 使用中括号的方式，访问对象的属性
+        console.log("方式一："+cgf.name)
+        console.log("方式二："+cgf["name"])
+        // 中括号支持运算
+        console.log("方式二："+cgf["na" + "me"])
+    </script>
+</body>
+</html>

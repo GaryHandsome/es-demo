@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        实例化对象方式二：文本标记法 - 简单、粗爆 - JSON字符串
+
+        var 对象名 = {
+            名称1:值 ,
+            ...
+            名称1:值
+        }
+
+        说明：
+            {}：表示对象
+            []：表示数组
+            function(){} : 表示函数
+            "" 或 ''：字符串
+            数值(Number)、布尔值（true | false）
+
+
+       JSON字符串：JavaScript对象的字符串表示
+        在 Servlet 通过 Gson 工具类，把后台中的数据（对象数据[实体对象、集合]）转化为 JSON字符串
+        把转换的 JSON字符串 传递给前端页面
+        在前端页面中，把 JSON字符串 转换为 JavaScript对象 - eval 或 JQuery
+        最后，在页面中读取对象中的属性及相关的数据，并在页面展示出来
+
+        以前做法：
+            后台把数据设置在作用域对象中，转发到 JSP 页面
+            在 JSP中，使用 EL + JSTL 实现数据的读取以及展示
+
+    -->
+    <script>
+        var cgf = {
+            // 1.定义对象的属性 - 描述对象的特征 - 相关数据
+            name: "陈广锋",
+            sex: '男',
+            isHeGe: true,
+            score: 99,
+            address: {
+                shenFen:'广东省' ,
+                chengShi:'珠海市',
+                chengZeng:'白蕉镇'
+            },
+            hobby:['吃','喝','玩','乐'],
+            // 2.定义对象的行为 - 描述对象的功能、职责 - 方法（函数）
+            study:function( hour ){
+                console.log(this.name + "学习了" + hour + "小时")
+            },
+            eat:function(){
+                console.log("吃")
+            }
+        }
+
+        // console.log(cgf)
+        // cgf.study(10)
+        // console.log(cgf.hobby)
+        // console.log(cgf.hobby[3])
+        // console.log(cgf.address)
+        console.log(cgf.address.shenFen + cgf.address.chengShi)
+
+
+
+    </script>
+</body>
+</html>
