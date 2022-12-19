@@ -42,10 +42,16 @@
       var xb = new Dog('小白',3) ;
       var xh = new Dog('小红',4) ;
 
+
       // 扩展方法 - 各个对象共享
       Dog.prototype.sleep = function(){
           console.log("睡觉")
       } ;
+
+      Dog.prototype.study = function( hour ){
+          console.log(this.name + "学习了" + hour + "小时")
+      } ;
+
 
       // 扩展属性 - 各个对象共享
       Dog.prototype.type = "哈士奇" ;
