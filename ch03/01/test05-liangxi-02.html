@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        2.文本标记法
+    -->
+    <script>
+        // 第一：定义一个对象
+        var stu = {
+            name: '江小白',
+            sex: '女',
+            score:99,
+            inSchool: true,
+            hobby: ['吃', '喝', '乐'],
+            address: {
+                sheng: '广东省',
+                shi: '珠海市',
+                xian: '白蕉镇'
+            },
+            print: function () {
+                console.log("姓名：" + this.name);
+                console.log("性别：" + this.sex);
+                console.log("分数：" + this.score);
+                console.log("是否在读：" + (this.inSchool?"是":"否") );
+                console.log("爱好：" + this.hobby);
+                console.log("家庭住址：" + this.address.sheng + this.address.shi + this.address.xian);
+            }
+        }
+
+
+        // 第二：调用对象的属性和方法，实现相关的操作
+        stu.print() ;
+
+    </script>
+</body>
+</html>

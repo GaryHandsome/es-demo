@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        3.class
+    -->
+    <script>
+        // 第一：定义类
+        class Student {
+            // 1.构造方法，并定义相关的属性
+            constructor(name,sex,score,inSchool,hobby,address) {
+                // 属性（变量）
+                this.name = name ;
+                this.sex = sex ;
+                this.score = score ;
+                this.inSchool = inSchool ;
+                this.hobby = hobby ;
+                this.address = address ;
+            }
+
+            // 2.行为（方法）
+            print() {
+                console.log("姓名：" + this.name);
+                console.log("性别：" + this.sex);
+                console.log("分数：" + this.score);
+                console.log("是否在读：" + (this.inSchool?"是":"否") );
+                console.log("爱好：" + this.hobby);
+                console.log("家庭住址：" + this.address.sheng + this.address.shi + this.address.xian);
+            }
+        }
+
+        var addr = {
+            sheng: '广东省',
+            shi: '珠海市',
+            xian: '白蕉镇'
+        };
+
+        // 第二：实例化对象
+        var ls = new Student('李四','女',89,false,['shopping','football'],addr) ;
+
+
+        // 第三：调用对象的属性和方法，实现相关的操作
+        ls.print() ;
+
+    </script>
+</body>
+</html>

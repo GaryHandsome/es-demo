@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        1.构造方法
+    -->
+    <script>
+        // 第一：定义构造方法（函数） -- 类似类
+        function Student(name,sex,score,inSchool,hobby,address) {
+            // 1.属性（变量）
+            this.name = name ;
+            this.sex = sex ;
+            this.score = score ;
+            this.inSchool = inSchool ;
+            this.hobby = hobby ;
+            this.address = address ;
+
+            // 2.行为（方法）
+            this.print = function() {
+                console.log("姓名：" + this.name);
+                console.log("性别：" + this.sex);
+                console.log("分数：" + this.score);
+                console.log("是否在读：" + (this.inSchool?"是":"否") );
+                console.log("爱好：" + this.hobby);
+                console.log("家庭住址：" + this.address.sheng + this.address.shi + this.address.xian);
+            }
+
+            this.sum = function () {
+                var s = 0 ;
+                for(var i=0;i<arguments.length;i++) {
+                    s = s + arguments[i] ;
+                }
+                return s ;
+            }
+        }
+
+        // 定义构造方法，用于封装地址
+        function Address(sheng,shi,xian) {
+            this.sheng = sheng ;
+            this.shi = shi ;
+            this.xian = xian ;
+        }
+
+        // 第二：使用构造方法，创建对象
+        //var hobby = ['吃','喝','玩'] ;
+        var hobby = new Array('吃','喝','玩') ;
+        var addr = new Address("广东省","珠海市","白蕉镇") ;
+
+        var zs = new Student('张三','男',99,false,hobby,addr) ;
+
+
+        // 第三：调用对象的属性和方法，实现相关的操作
+        zs.print() ;
+        console.log(zs.sum(1,2,3,4))
+
+    </script>
+</body>
+</html>

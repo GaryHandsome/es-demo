@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <!--
+       我们使用构造方法实例化的对象，各自拥有各自的属性和方法
+
+       无法实现属性或方法的共享
+
+       如何才能实现共享呢？ - 原型
+
+  -->
+  <script>
+      // 第一：定义构造函数
+      function Dog(name,age) {
+          // 属性
+          this.name = name ;
+          this.age = age ;
+
+          this.eat = function () {
+              console.log("吃")
+          }
+
+      }
+
+      // 实例化对象
+      var xb = new Dog('小白',3) ;
+      var xh = new Dog('小红',4) ;
+
+      console.log(xb) ;
+      console.log(xh) ;
+
+  </script>
+
+</body>
+</html>

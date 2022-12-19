@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <!--
+    在JavaScript中，函数是一个特殊的数据。
+    同时，也是一个包含方法和属性的对象（Function对象）
+      属性：length、constructor、prototype
+      方法：call、apply、bind
+
+    原型 - 函数名称.prototype - {}
+
+  -->
+  <script>
+      // 定义函数 - 1.函数就是数据
+      var foo = function (a,b) {
+          return a * b ;
+      }
+
+      // 2.函数就是对象（Function对象）
+      // 因此，它包含相关的方法和属性，如：
+      console.info(foo.length) ;        // 输出：2
+      console.info(foo.constructor) ;   // ƒ Function() { [native code] }
+
+      // 函数对象包含一个很特殊的属性 —— prototype（空对象-原型对象）
+      // 函数只要一定义，prototype属性就会被创建。它的初始值是一个空对象。
+      console.info(typeof foo.prototype) ;  // object
+      console.log(foo.prototype)
+
+  </script>
+
+</body>
+</html>
