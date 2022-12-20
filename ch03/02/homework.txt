@@ -1,0 +1,6 @@
+扩展Date对象，定义一个方法toDate()，
+实现把时间转化yyyy-MM-dd的格式。
+如：
+    var now = new Date() ;
+    console.log(now.toDate()) ;     // 2022-12-20
+

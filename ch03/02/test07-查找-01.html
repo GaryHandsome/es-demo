@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        查找：调用对象的属性或方法时，如何查找？
+    -->
+  <script>
+        // 构造函数
+        function Dog() {
+            this.a = 1 ;
+        }
+
+        Dog.prototype = {
+            b:2 ,
+            // 手动设置指回原来的构造函数
+            constructor:Dog
+        }
+
+        // 实例化对象
+        var xb = new Dog() ;
+
+        console.log(xb)
+        console.log(xb.c)
+
+
+
+
+
+  </script>
+
+</body>
+</html>

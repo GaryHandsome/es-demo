@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        在原型链中，查找的属性或方法存在同名，怎么办呢？ - 就近原则
+    -->
+  <script>
+        // 构造函数
+        function Dog() {
+            this.a = 1 ;
+        }
+
+        Dog.prototype = {
+            a:2 ,
+            // 手动设置指回原来的构造函数
+            constructor:Dog
+        }
+
+        // 实例化对象
+        var xb = new Dog() ;
+
+        console.log(xb.a)
+
+        console.log(xb)
+
+
+
+
+
+  </script>
+
+</body>
+</html>

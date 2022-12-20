@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        终极操作：实现字符串的反转 - 原型、原型链
+
+    -->
+  <script>
+      // 判断内置对象（String）是否已经存在扩展的方法
+      if( !String.prototype.reverse ) {
+          // 扩展方法（逐个扩展）
+          String.prototype.reverse = function(){
+              // 1.字符串转换为数组
+              // this指是调用自定义reverse方法的对象，也就是需要反转的字符串
+              // console.log(this)
+              var arr = this.split('');
+
+              // 2.把数组中的各个元素反转
+              // var newArr = arr.reverse();
+              // call,apply,bind - 改变this的指向
+              var newArr = Array.prototype.reverse.apply(arr);
+
+              // 3.把经过反转的数组，转换为字符串
+              var newStr = newArr.join('') ;
+
+
+
+              // 4.把处理的结果返回
+              return newStr ;
+          }
+      }
+
+      var str = "abcde" ;
+      // 查找
+      var newStr = str.reverse() ;
+
+      console.log(newStr)
+
+
+
+
+  </script>
+
+</body>
+</html>
