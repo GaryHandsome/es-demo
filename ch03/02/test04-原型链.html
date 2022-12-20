@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        原型链
+
+        任何对象都有原型对象，也就是prototype属性，
+
+
+        任何原型对象也是一个对象，该对象就有__proto__属性，
+
+        这样一层一层往上找，就形成了一条链，我们称此为原型链
+
+        简单的理解，各个原型连接形成的链，我们称之为原型链
+
+        prototype属性:原型
+        __proto__属性:各个原型连接的点，简称链接点
+
+        两个属性的使用方式如下：
+            构造方法.prototype : 返回的是原型对象
+            对象.__proto__    : 连接各个原型的点
+
+            任何对象都有原型对象，而原型对象也是对象，因此原型对象也有原型对象
+
+        关系
+            对象的__proto__属性保存着构造该对象的构造方法的prototype
+
+            对象.__proto__ === 构造方法.prototype
+
+    -->
+  <script>
+        // 第一：定义构造函数
+        function Dog(name) {
+            // 属性
+            this.name = name ;
+        }
+
+        function Cat(name) {
+            // 属性
+            this.name = name ;
+        }
+
+        // 第二：实例化对象
+        var xb = new Dog("小白");
+        var xh = new Cat("小花");
+
+        // 第三：判断__proto__属性与prototype属性的关系
+        console.log(xb.__proto__ === Dog.prototype)
+        console.log(xh.__proto__ === Dog.prototype)
+
+        console.log(xb)
+
+
+
+
+  </script>
+
+</body>
+</html>
