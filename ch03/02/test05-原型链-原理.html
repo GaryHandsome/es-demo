@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        xb = {
+            a:1 ,
+            __proto__:Dog.prototype = {
+                b:2 ,
+                __proto__:Object.prototype = {
+                    c:3 ,
+                    __proto__:null
+                }
+            }
+        }
+    -->
+  <script>
+        // 构造函数
+        function Dog() {
+            this.a = 1 ;
+        }
+
+        // 扩展一个属性
+        Dog.prototype.b = 2 ;
+
+        Object.prototype.c = 3 ;
+
+        // 实例化对象
+        var xb = new Dog() ;
+
+        xb.__proto__ --> Dog.prototype
+
+
+
+
+
+  </script>
+
+</body>
+</html>
