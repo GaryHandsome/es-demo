@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        Object.getPrototypeOf()
+
+        返回指定对象的原型对象。
+
+    -->
+    <script>
+
+        var proto = {};
+
+        // 基于 proto 对象，作为原型对象来创建 obj对象
+        // 也就是说，proto对象是obj对象的原型对象
+        var obj = Object.create(proto);
+
+        // true
+        console.log(Object.getPrototypeOf(obj) === proto);
+
+
+
+    </script>
+
+</body>
+</html>

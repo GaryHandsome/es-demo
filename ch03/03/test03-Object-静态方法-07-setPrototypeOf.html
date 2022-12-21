@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        Object.setPrototypeOf(对象1,对象2) - 设置对象1的原型对象为对象2
+
+        设置对象的原型（即内部 [[Prototype]] 属性）。
+
+
+        构造方法.prototype = 对象 ;
+
+    -->
+    <script>
+
+        var obj = {a: 1} ;
+
+        var proto = {b:2} ;
+
+        // 设置obj对象的原型对象为proto
+        Object.setPrototypeOf(obj, proto)
+
+        // true
+        console.log(obj.__proto__ === proto)
+
+
+
+
+    </script>
+
+</body>
+</html>

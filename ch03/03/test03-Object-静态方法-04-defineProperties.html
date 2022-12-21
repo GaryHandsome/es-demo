@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        Object.defineProperties()
+
+            给对象添加多个属性并分别指定它们的配置。
+
+            Object.defineProperties(对象名称, {
+
+                '属性1':{
+                        // 属性描述，同definePropertie
+                } ,
+                '属性2':{
+                        // 属性描述，同definePropertie
+                }
+
+                //...
+
+            }) ;
+
+    -->
+    <script>
+        'use strict'
+
+        // 使用文本标记法，创建dog对象
+        var dog = {
+            color: '白色' ,
+            // 编程规范
+            _sex:'男'
+        };
+
+        // 给某个对象，定义多个属性
+        Object.defineProperties(dog, {
+            'name': {
+                // 只读
+                writable: false,
+
+                // 设置默认值
+                value: '小白',
+
+                // 不可枚举（遍历时不显示）
+                enumerable: false,
+
+                // 不可重新配置
+                configurable: false,
+            },
+            'age':{
+                value:18
+            },
+            'sex':{
+                set( val ) {
+                    this._sex = val ;
+                },
+                get() {
+                    return this._sex ;
+                }
+            }
+        });
+
+        dog.sex = "女" ;
+        console.log(dog) ;
+
+    </script>
+
+</body>
+</html>
