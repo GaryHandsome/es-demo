@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        Object.prototype.hasOwnProperty(属性)
+
+        判断某个属性是否为当前对象自身的属性，还是继承自原型对象的属性
+
+    -->
+    <script>
+        // 构造方法
+        function Cat() {
+            this.name = "小花" ;
+        }
+
+        // 指定Cat的原型对象 - 通过原型扩展属性或方法
+        Cat.prototype = {
+            age:5
+        } ;
+
+        // 实例化对象
+        var c = new Cat() ;
+
+        // true，name属性是Cat对象自身的属性
+        console.log(c.hasOwnProperty('name')) ;
+
+        // false，age属性不是Cat对象自身的属性，而是从原型链中获取
+        console.log(c.hasOwnProperty('age')) ;
+
+        // false，不存在的属性
+        console.log(c.hasOwnProperty('nickname')) ;
+
+    </script>
+
+</body>
+</html>

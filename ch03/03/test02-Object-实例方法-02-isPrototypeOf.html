@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        Object.prototype.isPrototypeOf(对象)
+
+        判断当前对象是否为另一个对象的原型
+
+    -->
+    <script>
+        // 对象 - 文本标记法
+        var animal = {
+            sex : '男',
+            age : 3
+        }
+
+        // 构造方法
+        function Dog(name) {
+            this.name = name ;
+        }
+
+        // 指定Dog的原型对象为animal
+        // 扩展Dog构造方法，增加了sex属性和age属性
+        Dog.prototype = animal ;
+
+        // 实例化对象
+        var xb = new Dog('小白') ;
+
+        // 判断 animal 对象是否为 xb 对象的原型对象 - true
+        console.log(animal.isPrototypeOf(xb));
+
+    </script>
+
+</body>
+</html>

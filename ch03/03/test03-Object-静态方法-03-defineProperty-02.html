@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        Object.defineProperty()
+
+        给对象添加一个属性并指定该属性的配置（详细）。
+
+        语法
+        Object.defineProperty(obj, prop, descriptor）
+
+        ● obj：要定义属性的对象。
+        ● prop：要定义或修改的属性的名称或 Symbol 。
+        ● descriptor：要定义或修改的属性描述符（以对象的方式进行描述）。
+
+    -->
+    <script>
+        // 严格模式
+        'use strict'
+
+        // 文本标记法 - 创建对象dog
+        var dog = {
+            color: '白色'
+        };
+
+        // 定义变量，用户接收属性值
+        var defaultAge = 18 ;
+
+        Object.defineProperty(dog,'age',{
+            // value:20 ,       // 错误，不能同时存在数据描述符和存取描述符
+            enumerable: true,   // 在使用存取描述符的同时，也可以使用其它非数据描述符
+
+            get() {
+                console.log('get data')
+                return defaultAge ;
+            },
+            set(value) {
+                console.log('set data')
+                defaultAge = value ;
+            }
+        }) ;
+
+        // 属性赋值时，自动调用set方法
+        dog.age = 30 ;
+
+        // 读取属性值时，自动调用get方法
+        console.log(dog.age) ;
+
+        console.log(dog);
+    </script>
+
+</body>
+</html>

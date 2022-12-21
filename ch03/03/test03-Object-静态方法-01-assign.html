@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        Object.assign()
+        ● 通过复制一个或多个对象来创建一个新的对象；
+        ● 用于将所有可枚举属性的值从一个或多个源对象分配到目标对象。它将返回目标对象。
+
+        语法：Object.assign(target, ...sources)
+
+        参数：
+        ● target：目标对象
+        ● sources：源对象，N个
+
+    -->
+    <script>
+        // 使用文本标记法分别创建target对象、source对象
+        var target = { a: 1, b: 2 };
+
+        var source = { b: 4, c: 5 };
+
+        // 重复的属性，后者把前者覆盖
+        var returnedTarget = Object.assign(target, source);
+
+        console.log(target);
+        console.log(returnedTarget)
+
+        // 返回值就是目标对象，因此结果一样
+        console.log(target === returnedTarget)
+
+        // 思考，结果为？
+        returnedTarget = Object.assign(target, source,{c:9,d:8});
+
+        console.log(returnedTarget,target)
+    </script>
+
+</body>
+</html>

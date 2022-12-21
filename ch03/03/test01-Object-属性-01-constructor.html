@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object
+
+        实例方法：通过对象访问的方法
+            对象.方法名()
+
+        静态方法：通过构造方法访问的方法
+            构造方法.方法名()
+    -->
+    <script>
+        // 构造方法
+        function Hero(name) {
+            this.name = name ;
+        }
+
+        // 创建对象
+        let h1 = new Hero('super Man') ;
+
+        // 通过 constructor 属性 创建对象h2
+        // constructor属性哪来的？ - 继承自Object的prototype - 原型、原型链的原型
+        // h1.constructor 指向的是 Hero
+        let h2 = new h1.constructor('zing') ;
+
+        console.log(h1,h2) ;
+
+    </script>
+
+</body>
+</html>

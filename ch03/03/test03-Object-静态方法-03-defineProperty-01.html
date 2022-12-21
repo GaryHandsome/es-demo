@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        Object.defineProperty()
+
+        给对象添加一个属性并指定该属性的配置（详细）。
+
+        语法
+        Object.defineProperty(obj, prop, descriptor）
+
+        ● obj：要定义属性的对象。
+        ● prop：要定义或修改的属性的名称或 Symbol 。
+        ● descriptor：要定义或修改的属性描述符（以对象的方式进行描述）。
+
+    -->
+    <script>
+        // 严格模式
+        'use strict'
+
+        // 文本标记法 - 创建对象dog
+        var dog = {
+            color: '白色'
+        };
+
+        // 给某个对象，"详细的"定义一个属性
+        Object.defineProperty(dog, "name", {
+            // 设置是否可写。false表示不可写（只读），true表示可写
+            writable: false,
+
+            // 设置默认值
+            value: '小白',
+
+            // 设置属性是否可枚举
+            // 是否能遍历对象的属性，能就是可枚举，不能就是不可枚举
+            enumerable: true,
+
+            // 属性设置是否可重新配置，true可以重新配置，false不可重新配置
+            configurable: false
+        });
+
+
+        // console.log(dog) ;
+
+        // 错误，name属性只读
+        // dog.name = "狗狗"
+
+        // 错误，name属性只读
+        //delete dog.name
+
+        // 错误，属性不可重新配置
+        // Object.defineProperty(dog, "name", {
+        //     writable: true
+        // });
+        //
+        // dog.name = "狗狗"
+        // console.log(dog)
+
+        // 只能遍历dog对象的color属性
+        // for...in: 用于遍历对象的属性（可枚举）
+        for(var attr in dog) {
+            console.log(attr) ;
+        }
+    </script>
+
+</body>
+</html>

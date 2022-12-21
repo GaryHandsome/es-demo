@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        Object.create()
+
+        使用指定的原型对象和属性创建一个新对象。
+
+    -->
+    <script>
+        // 文本标记法 - 创建对象 - person
+        var person = {
+            name: 'zs',
+            show: function() {
+                console.log('我的名字是：' + this.name);
+            }
+        };
+
+        // 以person为原型创建一个新的对象
+        // 也就是说，person对象是me对象的原型
+        var me = Object.create(person);
+
+        // 操作
+        // me.name = '小白';
+        // me.show();
+
+        console.log(me) ;
+        // 从结果可以看出，对象me的原型引用了person
+
+        // 输出结果为：true
+        console.log(person.isPrototypeOf(me));
+    </script>
+
+</body>
+</html>

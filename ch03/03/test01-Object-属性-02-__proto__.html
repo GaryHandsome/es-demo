@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object
+
+        实例方法：通过对象访问的方法
+            对象.方法名()
+
+        静态方法：通过构造方法访问的方法
+            构造方法.方法名()
+    -->
+    <script>
+        // 构造函数
+        function Hero(name) {
+            this.name = name;
+        }
+
+        // 创建对象
+        var h1 = new Hero('zs');
+        var h2 = new Hero('ls');
+
+
+        // 对象h1的__proto__属性 指向的就是 构造函数Hero的原型对象，因此返回true
+        console.log(h1.__proto__ == Hero.prototype);
+
+    </script>
+
+</body>
+</html>
