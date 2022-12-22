@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        属性的封装：Object.defineProperty(对象,属性,{参数列表}) ;
+    -->
+    <script>
+        'use strict'
+
+        // 对象
+        var dog = {
+            color:'白色'
+        } ;
+
+        // 属性的定义（封装）
+        Object.defineProperty(dog,"name",{
+            // 只读
+            writable:false,
+
+            // 设置默认值
+            value:'小白' ,
+
+            // 不可挺举（遍历时不显示）
+            enumerable:false,
+
+            // 不可重新配置
+            configurable:false
+        }) ;
+
+        // 错误，name属性只读
+        //dog.name = "狗狗"
+        console.log(dog.name);
+
+        // 错误，name属性只读
+        //delete dog.name
+
+        // 错误，属性不可重新配置
+        Object.defineProperty(dog,"name",{
+            writable:true
+        }) ;
+
+    </script>
+
+</body>
+</html>

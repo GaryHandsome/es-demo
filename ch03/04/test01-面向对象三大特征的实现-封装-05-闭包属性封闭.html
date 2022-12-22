@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        闭包属性的封装
+
+        真正实现 Java 语言的 setter/getter 方法
+    -->
+    <script>
+
+        // 闭包函数的应用 - 内部函数 + 访问外函数的变量 + 返回内部函数 + 自调用函数 + 方法重写
+        var stu = function() {
+            // 私有化
+            var age = 0 ;
+
+            // 返回多个函数，使用数组或对象
+            return {
+                getAge : function() {
+                    return age ;
+                },
+                setAge : function(value) {
+                    if(!isNaN(value) && value>=1 && value<=150) {
+                        age = value ;
+                    } else {
+                        throw '年龄必须在1-150之间的数值'
+                    }
+
+                }
+            }
+        }() ;
+
+        // 直接访问函数内部变量--失败，返回undefined
+        console.log(stu.age) ;
+
+        // 设置数据
+        stu.setAge(100);
+
+        // 获取数据
+        console.log(stu.getAge())
+
+    </script>
+
+</body>
+</html>

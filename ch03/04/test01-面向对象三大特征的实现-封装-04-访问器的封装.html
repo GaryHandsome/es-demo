@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        访问器的封装：Object.defineProperty(对象,属性,{参数列表}) ;
+
+        模拟 Java 语言的 setter/getter 方法
+    -->
+    <script>
+
+        // 对象
+        var cat = {
+            name:'小花',
+            // 编程规范（模拟隐藏属性）
+            _age:18
+        }
+
+        Object.defineProperty(cat,'age',{
+            configurable:false,
+            enumerable:true,
+
+            // getter
+            get:function() {
+                return this._age ;
+            },
+
+            // setter
+            set:function(value) {
+                if(isNaN(value) || value<0) {
+                    throw '年龄必须是大于0的数字' ;
+                }
+
+                this._age = value ;
+            }
+        }) ;
+
+        // cat.age = 20 ;
+        // console.log(cat);
+
+        cat.age = 20 ;
+        console.log(cat.age)
+
+
+        console.log(cat)
+
+    </script>
+
+</body>
+</html>

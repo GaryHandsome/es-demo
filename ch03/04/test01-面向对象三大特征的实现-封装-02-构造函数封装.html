@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        构造函数的封装：把对象的属性和行为封装到一个整体，便于访问和维护。
+    -->
+    <script>
+        // 定义构造函数
+        function Dog(name,age) {
+            // 属性
+            this.name = name ;
+            this.age = age ;
+
+            // 方法
+            this.sleep = function () {
+                console.log("睡觉")
+            }
+
+            // this.__proto__ = ?
+        }
+
+        // 通过原型，扩展方法
+        Dog.prototype.eat = function(sth) {
+            return this.name + '喜欢吃' + sth ;
+        }
+
+        // 实例化对象
+        var xb = new Dog('小白',3) ;
+        var xh = new Dog('小红',4) ;
+
+    </script>
+
+</body>
+</html>
