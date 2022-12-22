@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        多态
+
+            原型、原型链（查找）
+
+    -->
+    <script>
+
+        // 构造方法 - 动物
+        function Animal() { }
+
+        // 给Animal构造方法，指定一个原型对象
+        Animal.prototype = {
+            constructor: Animal,
+            eat: function () {
+                console.log("动物在吃");
+            }
+        }
+
+        // 构造方法 - 猫
+        function Cat() { }
+
+        // 给Cat构造方法，扩展了eat的方法
+        Cat.prototype.eat = function () {
+            console.log("猫在吃小鱼");
+        }
+
+        // 构造方法 - 狗
+        function Dog() { }
+
+        // 给Dog构造方法，扩展了eat的方法
+        Dog.prototype.eat = function () {
+            console.log("狗在吃骨头");
+        }
+
+        // 实现多态 - 使用相同一个接口(animalEat)，根据不同的实例执行不同的操作。
+        function animalEat( animal ) {
+            if(animal.eat instanceof Function) {
+                animal.eat() ;
+            }
+        }
+
+        animalEat(new Cat()) ;
+        animalEat(new Dog()) ;
+
+        // 同理，在Object的原型对象中，扩展eat方法
+        Object.prototype.eat = function() {
+            console.log("世界万物都要吃东西")
+        }
+
+        // 无输出
+        animalEat(new Object()) ;
+
+
+
+    </script>
+
+</body>
+</html>

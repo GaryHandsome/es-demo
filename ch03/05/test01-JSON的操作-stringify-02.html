@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        JSON的操作
+
+        1.序列化：把JavaScript对象，转换为JSON字符串 - eval(禁用)
+            JSON.stringify(对象[,过滤][,缩进字符]) ;
+
+
+        2.反序列化：把JSON字符串，转换为JavaScript对象
+            JSON.parse(JSON字符串[,还原函数]) ;
+
+    -->
+    <script>
+        // javascript对象
+        var product = {
+            id : 10001,
+            name : 'IPhone16手机' ,
+            price : 100 ,
+            type:['电子','手机'],
+            size: {
+                width:700,
+                height:1300
+            }
+        }
+
+        // 2.过滤操作 - 回调函数  - key：属性名称，value：属性对应的值
+        var text = JSON.stringify(product,function(key,value) {
+            switch(key) {
+                case 'price':
+                    return value * 2 ;
+                case 'name':
+                    return value.replace(/手/igm,'耳') ;
+                default:
+                    return value;
+            }
+        }) ;
+
+        console.log(text);
+    </script>
+
+</body>
+</html>

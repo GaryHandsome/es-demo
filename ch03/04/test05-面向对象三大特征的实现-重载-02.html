@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        重载 - 使用函数内置对象 arguments 对象（数组）
+
+
+
+    -->
+    <script>
+
+
+        // 定义 add 方法，实现相关的操作
+        function add() {
+            // 如果传递只有一个参数，且是数值型的数据，则加1返回
+            if(arguments.length==1 && typeof(arguments[0])==='number') {
+                return ++arguments[0] ;
+            } else {
+                // 如果传递的参数个数超过1，则进行参数数据的求和操作，并返回结果
+                var s = 0 ;
+
+                for(var i=0;i<arguments.length;i++) {
+
+                    if(typeof(arguments[i])!=='number') {
+                        throw '参数必须是数字' ;
+                    }
+
+                    s += arguments[i] ;
+                }
+
+                return s ;
+            }
+        }
+
+
+        console.log(add(1));
+        console.log(add(1,2));
+        console.log(add(1,2,3));
+        console.log(add(1,2,3,'h'));
+
+    </script>
+
+</body>
+</html>

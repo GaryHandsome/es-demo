@@ -8,7 +8,7 @@
     <!--
         方法覆盖
 
-            原型、原型链
+            原型、原型链（查找）
 
     -->
     <script>
@@ -21,7 +21,7 @@
         Animal.prototype = {
             constructor:Animal,
             eat:function() {
-                console.log("动物在吃") ;
+                console.log("动物在吃 - 父对象吃的方法") ;
             }
         }
 
@@ -36,13 +36,18 @@
 
         // 覆盖原型对象中的eat方法
         Cat.prototype.eat = function() {
-            // 调用父类中的eat方法
-            Animal.prototype.eat.call(this) ;
-            console.log("小花猫在吃") ;
+            // 调用父类中的eat方法 - super.eat() ;
+            // Animal.prototype.eat.call(null) ;
+            console.log("小花猫在吃 - 子对象吃的方法") ;
         }
 
-        // 实例化对象
-        new Cat().eat() ;
+        // 实例化对象 - 在原型链中匹配方法 - 就近原则 - 覆盖
+        var xh = new Cat()
+        xh.eat() ;
+
+        console.log(xh)
+
+
 
 
     </script>

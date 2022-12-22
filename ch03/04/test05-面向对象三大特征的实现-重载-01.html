@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        重载
+
+
+
+    -->
+    <script>
+        function Dog() {
+            this.eat = function(a) {
+                console.log("...")
+            }
+
+            // 方法重载 - 覆盖
+            this.eat = function(a,b) {
+                console.log("...")
+            }
+        }
+
+
+        var xb = new Dog();
+        console.log(xb)
+
+    </script>
+
+</body>
+</html>
