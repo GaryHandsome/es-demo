@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+         继承，call()方法实现
+
+            ● 定义父构造方法
+
+            ● 定义子构造方法
+
+            ● 调用父构造方法，把父构造方法的this修改为子构造方法的对象实例
+
+            call 、 apply 、 bind
+    -->
+    <script>
+        // 第一：父构造方法
+        function Animal(name,age) {
+            // this -> Animal对象
+            this.name = name ;
+            this.age = age ;
+
+            this.eat = function() {
+                console.log('吃') ;
+            }
+        }
+
+
+        // 第二：子构造方法
+        function Dog(name,age,color) {
+            // 第三：调用父构造方法，把父构造方法的this修改为子构造方法的对象实例
+            // 方法名称.call(对象,...) ;
+            // this -> Dog对象 - Dog 继承了 Animal
+            Animal.call(this,name,age) ;
+
+            this.color = color ;
+        }
+
+
+        var xb = new Dog('小白',3,'白色') ;
+        console.log(xb)
+
+
+    </script>
+
+</body>
+</html>

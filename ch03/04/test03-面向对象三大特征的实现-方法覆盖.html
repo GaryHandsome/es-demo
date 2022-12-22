@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        方法覆盖
+
+            原型、原型链
+
+    -->
+    <script>
+        // 构造方法（空）
+        function Animal() {
+
+        }
+
+        // 指定Animal原型对象为 {...}  -> {...}这个对象就相当于是Animal对象的父对象
+        Animal.prototype = {
+            constructor:Animal,
+            eat:function() {
+                console.log("动物在吃") ;
+            }
+        }
+
+        // 构造方法（空）
+        function Cat() {
+
+        }
+
+        // 指定了Cat原型对象为Animal对象 - 此时的Cat对象中，是否存在eat的方法？ - 存在，继承自父对象
+        Cat.prototype = new Animal() ;
+
+
+        // 覆盖原型对象中的eat方法
+        Cat.prototype.eat = function() {
+            // 调用父类中的eat方法
+            Animal.prototype.eat.call(this) ;
+            console.log("小花猫在吃") ;
+        }
+
+        // 实例化对象
+        new Cat().eat() ;
+
+
+    </script>
+
+</body>
+</html>

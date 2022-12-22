@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        继承，原型对象的实现
+            ● 定义父构造方法
+            ● 定义子构造方法
+            ● 指定原型对象
+
+
+       原型、原型链
+    -->
+    <script>
+        // 第一：父构造方法
+        function Animal(name,age) {
+            this.name = name ;
+            this.age = age ;
+            this.eat = function() {
+                console.log('吃') ;
+            }
+        }
+
+        // 第二：子构造方法
+        function Dog(color) {
+            this.color = color ;
+        }
+
+        // 第三：指定原型对象 - 实例化的Animal对象成为了Dog构造方法的原型对象
+        Dog.prototype = new Animal('小白',3) ;
+
+        var xb = new Dog('白色') ;
+        console.log(xb) ;
+        console.log("姓名："+xb.name) ;
+        console.log("年龄："+xb.age) ;
+        console.log("颜色："+xb.color) ;
+
+
+    </script>
+
+</body>
+</html>
