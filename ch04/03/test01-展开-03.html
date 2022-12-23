@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        展开：spread
+
+            语法： ...名称
+
+            ● 名称必须是一个可iterable的对象。
+            ● 其中可iterable的对象有：数组、对象、字符串、生成器（Generators）、集合（Collections）
+            ● 作用：把可iterable的对象展开，并返回展开的内容
+    -->
+
+
+
+    <script>
+        function sum(a,b,c) {
+            console.log(a + b + c);
+        }
+
+        // sum(1,2,3)
+
+        var arr = [1,2,3] ;
+
+        // 展开数组，依次把数据传递到函数的参数中
+        sum(...arr) ;
+
+
+
+    </script>
+
+</body>
+</html>

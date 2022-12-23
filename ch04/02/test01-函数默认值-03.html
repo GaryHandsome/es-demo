@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        ES6之后
+    -->
+
+
+
+    <script>
+        // 函数默认值支持自调用函数
+        function fun(m=100, n=(function(x){
+            // ... 业务逻辑
+            return x*5;
+        })(100)) {
+            // ....
+            console.log('m=' + m + '，n=' + n);
+        }
+
+        // function xx(x) {
+        //     return 5 * x
+        // }
+        // var x = xx() ;
+
+
+        fun(1);
+
+
+
+    </script>
+
+</body>
+</html>

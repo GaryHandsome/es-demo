@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        收集：rest
+
+        语法：...参数名称
+
+        rest与spread是相对的操作，rest可以收集剩余的参数，形成可变参数的函数，与Java中的...类似。
+
+        在JavaScript中，通过收集可以实现函数不定长参数
+
+        arguments
+    -->
+
+
+
+    <script>
+        function sum(a,...args) {
+            // 分别输出参数的值
+            console.log(a) ;
+
+            console.log(args);
+
+            console.log(args[0]);
+            console.log(args[1]);
+            console.log(args[2]);
+        }
+
+        // sum(1) ;
+        // sum(1,2,3,4)
+
+        // 返回函数的参数个数
+        console.log(sum.length)
+
+
+    </script>
+
+</body>
+</html>

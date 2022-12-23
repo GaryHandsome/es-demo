@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        ES6之前
+    -->
+
+
+
+    <script>
+        function fun(m, n) {
+            // 参数默认值处理 - 使用到 逻辑或 的特殊运算实现
+            // 如果没有传递参数，则参数值为 undefined , undefined进行逻辑或运行时，它的逻辑值为false
+            if(m==0) {
+                m = 0 ;
+            } else {
+                m = m || 100 ;
+            }
+
+            if(n==0){
+                n = 0 ;
+            } else {
+                n = n || 200 ;
+            }
+            
+
+            console.log('m=' + m + '，n=' + n);
+        }
+
+        // fun() ;
+        // fun(1) ;
+        // fun(1,2) ;
+        // fun(1,undefined) ;
+        // fun(undefined,2) ;
+        // fun(1,2,3)
+
+        // 结果为 - BUG
+        fun(0,0) ;
+
+
+
+    </script>
+
+</body>
+</html>

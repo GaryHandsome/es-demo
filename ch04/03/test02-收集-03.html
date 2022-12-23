@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        收集：rest
+
+        语法：...参数名称
+
+        在JS中，函数内置的数组对象（arguments），也可以收集函数的参数值。它们的区别如下：
+
+        ● rest只包含那些没有给出名称的参数，而arguments包含全部参数
+        ● arguments对象不是数组，它是一个像是数组的对象，而rest是数组对象
+        ● arguments是内置对象，默认存在于函数中，而rest必须使用...显式声明
+
+        另外，rest的参数必须定义在函数的最后一个参数中；函数对象的length属性不计算rest参数。
+    -->
+
+
+
+    <script>
+        function sum(a,b,...args) {
+            // 分别输出参数的值
+            console.log(a);
+            console.log(b);
+            // 3,4,5,6
+            console.log(args);
+            // 1,2,3,4,5,6
+            console.log(arguments)
+
+            // false
+            console.log(arguments instanceof Array) ;
+
+            // true
+            console.log(args instanceof Array) ;
+
+        }
+
+        sum(1,2,3,4,5,6)
+
+
+
+    </script>
+
+</body>
+</html>
