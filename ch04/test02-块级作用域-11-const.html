@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        const：定义常量的关键字
+
+        在声明常量的同时，必须初始化值，且值在后面的使用中不能改变
+        const 常量 = 值 ;
+
+
+        const与let基本相同，产生块级作用域，不会提升，存在暂时性死区，必须先声明后使用，不允许重复定义。
+
+        const限制的只是常量指向的内存地址不变，但地址所引用的对象是允许被修改的。
+        因为简单类型的数据直接存放在内存地址中，而复杂类型（如对象各数组）的数据是间接存储的
+    -->
+
+
+
+    <script>
+        // 定义了一个常量，用于存储一个数组（对象）
+        const arr = [100,200] ;
+
+        // 错误
+        // arr = ['aa','bb'] ;
+
+        arr.push(300) ;
+
+        console.log(arr) ;
+
+
+
+        const obj = {
+            name:'zs'
+        }
+
+        obj.age = 18 ;
+
+
+        console.log(obj)
+
+        // obj = {}
+
+
+
+    </script>
+
+</body>
+</html>

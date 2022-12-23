@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+
+    -->
+
+    <ul>
+        <li>你好</li>
+        <li>我好</li>
+        <li>大家好，才是真的好</li>
+    </ul>
+
+    <script>
+        // 第一：选择要操作的节点 - li
+        let lis = document.querySelectorAll("li") ;
+
+        // 第二：循环遍历li节点，绑定单击事件
+        // for(var i=0;i<lis.length;i++) {
+        //     lis[i].onclick = function () {
+        //         console.log(this.innerHTML + "-" + i)
+        //     }
+        // }
+
+        // let声明变量支持块级作用域
+        // for(let i=0;i<lis.length;i++) {
+        //     lis[i].onclick = function () {
+        //         console.log(this.innerHTML + "-" + i)
+        //     }
+        // }
+
+        // 闭包：内部函数 + 访问外部函数变量 + 返回函数，重写函数 + 自调用函数
+        for(var i=0;i<lis.length;i++) {
+            lis[i].onclick = function (x) {
+                // 闭包访问的变量常驻内存
+                return function() {
+                    console.log(x)
+                }
+            }(i) ;
+        }
+
+
+    </script>
+
+</body>
+</html>

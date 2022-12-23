@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        let与var关键字一样，都是用于声明变量
+
+        let 变量名 = 值 ;
+
+        3）暂时性死区
+
+
+
+
+    -->
+    <script>
+
+        var arr = [];
+
+        // 注意：变量i全局的
+        for (var i = 0; i < 2; i++) {
+
+            arr[i] = function () {
+                console.log(i);
+            }
+
+        }
+
+        // 程序执行到此处时，变量i的值为2
+
+        // 以下两行代码，输出结果为？
+        arr[0]();
+        arr[1]();
+
+    </script>
+
+</body>
+</html>
