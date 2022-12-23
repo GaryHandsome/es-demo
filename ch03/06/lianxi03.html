@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Animal() {
+            this.pao = function () {
+                console.log("准备跑...");
+            }
+        }
+
+        function MaQue() {
+            this.pao = function () {
+                this.__proto__.pao() ;
+                console.log("麻雀跑");
+            }
+        }
+
+
+
+
+        function TuZi() {
+            this.pao = function () {
+                this.__proto__.pao() ;
+                console.log("兔子跑");
+            }
+        }
+
+        function LaoHu() {
+            this.pao = function () {
+                this.__proto__.pao() ;
+                console.log("老虎跑");
+            }
+        }
+
+
+        // 创建父类对象
+        var dw = new Animal();
+
+        MaQue.prototype = dw;
+        TuZi.prototype = dw;
+        LaoHu.prototype = dw;
+
+
+        function LieRen() {
+
+            this.kaiQiang = function( animal ) {
+
+                var rand = Math.random() * 10 ;
+                if(rand > 6) {
+                    console.log("打猎成功!");
+                    return ;
+                }
+                animal.pao() ;
+            }
+
+        }
+
+        var zs = new LieRen() ;
+        var tiger = new LaoHu() ;
+        // 创建其它子类对象，测试（略）
+
+        zs.kaiQiang(tiger) ;
+
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Animal(name,age) {
+            this.name = name ;
+            this.age = age ;
+
+            // this.eat = function() {
+            // }
+        }
+
+        // 通过原型对象扩展eat()方法
+        Animal.prototype.eat = function() {
+            console.log('动物吃');
+        }
+
+
+
+        function Cat(name,age,sex) {
+            // this.name = name ;
+            // this.age = age ;
+
+            this.__proto__.name = name ;
+            this.__proto__.age = age ;
+
+            this.sex = sex ;
+
+            this.catchMouse = function() {
+                console.log("猫抓老鼠");
+            }
+        }
+
+        Cat.prototype = new Animal() ;
+
+
+        var xh = new Cat('小花',3,'女') ;
+        // xh.name = '小花' ;
+        // xh.age = 5 ;
+
+        console.log(xh);
+        xh.eat() ;
+        console.log(xh.name);
+        console.log(xh.age);
+        
+        
+
+    </script>
+</body>
+
+</html>

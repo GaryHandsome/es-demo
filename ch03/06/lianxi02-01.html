@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Animal(name,age) {
+            this.name = name ;
+            this.age = age ;
+
+            // this.eat = function() {
+            // }
+        }
+
+        // 通过原型对象扩展eat()方法
+        Animal.prototype.eat = function() {
+            console.log('动物吃');
+        }
+
+
+
+        function Cat(name,age,sex) {
+            // 调用方法，并修改this对象的指向
+            // 以下代码，相当把Animal构造方法和Cat构造方法合并一起
+            Animal.call(this,name,age) ;
+
+            this.sex = sex ;
+            this.catchMouse = function() {
+                console.log("猫抓老鼠");
+            }
+        }
+
+        var xh = new Cat('小花',3,'女') ;
+        console.log(xh);
+        xh.eat() ;
+        
+        
+
+    </script>
+</body>
+
+</html>

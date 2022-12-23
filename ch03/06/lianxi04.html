@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function sayHello() {
+            // 注意：在任何的函数内部，都具有一个特殊的对象 -- arguments
+            // 判断参数个数
+            if(arguments.length>3 || arguments.length==0) {
+                throw '参数异常'
+            }
+
+
+            if(arguments.length==1) {
+                console.log('你好，' + arguments[0] + '女士/先生');  
+            } else if(arguments.length==2) {
+
+                if(!(arguments[1]=='早上' || arguments[1]=='中午' || arguments[1]=='晚上')) {
+                    throw '第二参数必须为早上或中午或晚上'
+                }
+
+                console.log(arguments[1] + '好，' + arguments[0] + '女士/先生');
+            } else {
+
+                if(!(arguments[1]=='早上' || arguments[1]=='中午' || arguments[1]=='晚上')) {
+                    throw '第二参数必须为早上或中午或晚上'
+                }
+
+                console.log(arguments[1] + '好，' + arguments[0] + '女士/先生！' + arguments[2]);
+                
+            }
+        }
+
+        // sayHello('张三') ;
+        // sayHello('张三','早上') 
+        sayHello('张三','早上','今天天气真好') ;
+
+        // sayHello() ;
+
+
+    </script>
+</body>
+
+</html>
