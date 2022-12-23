@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        setter/getter方法 - 简化了Object.defineProperty()的存取数据描述的定义。
+    -->
+    <script>
+        var user = {
+            // 访问时，直接访问age即可，而_age是一种编程规范，并没有实现对外隐藏，外部依然可以直接访问
+            _age:0,
+
+            get age() {
+                return this._age ;
+            },
+
+            set age(value) {
+                this._age = value ;
+            }
+        }
+
+        console.log(user)
+
+        user.age = 18 ;
+        console.log(user.age);
+    </script>
+
+</body>
+</html>

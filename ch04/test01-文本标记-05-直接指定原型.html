@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        直接指定原型：__proto__
+    -->
+    <script>
+        var person = {
+            name:'匿名'
+        }
+
+        var user = {
+            // 直接通过 __proto__ 属性指定原型对象
+            __proto__:person
+        }
+
+        // user.__proto__ = person ;
+
+        console.log(user);
+        console.log(user.name);
+    </script>
+
+</body>
+</html>

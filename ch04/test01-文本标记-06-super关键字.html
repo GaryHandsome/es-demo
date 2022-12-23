@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        super
+    -->
+    <script>
+        // 父对象
+        var animal = {
+            name:'动物' ,
+            show() {
+                // 输出当前对象，查看this的指向
+                console.log(this);
+                console.log('我是一只 ' + this.name);
+            }
+        }
+
+        // 子对象
+        var cat = {
+            // 直接通过 __proto__ 属性指定原型对象
+            __proto__:animal ,
+            // 覆盖属性、方法 - 原型链中，优先访问子对象中同名的属性和方法（就近原则）
+            name:'猫',
+            show() {
+                // 调用原型中的方法,有以下三种方式
+                // 方式一：在原型的show()方法中，this指向的还是cat对象
+                // super.show() ;
+
+                // 方式二：区别于super，在原型的show()方法中，this的还是animal对象
+                // Object.getPrototypeOf(this).show() ;
+
+                // 方法三：使用call方法调用，重新指定this的指向，使其指定cat对象，完全等同于super。
+                // 因此，super是一个语法糖，方便调用
+                Object.getPrototypeOf(this).show.call(this) ;
+
+                console.log('喵喵...');
+            }
+        }
+
+        cat.show() ;
+    </script>
+
+</body>
+</html>

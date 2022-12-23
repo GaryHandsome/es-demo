@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        let与var关键字一样，都是用于声明变量
+
+        let 变量名 = 值 ;
+
+        1)作用域：let声明的变量支持支持块级作用域，而var不支持
+
+        {
+
+        }
+
+        for() {
+
+        }
+
+        if() {
+
+        }
+    -->
+    <script>
+        if(true) {
+            // m变量不支持块级作用域，在块外面也能访问此变量
+            var m = 100 ;
+
+            // n变量支持块级作用域，只能作用于当前块
+            let n = 200 ;
+        }
+
+        // console.log(m) ;
+        // console.log(n) ;
+
+        for(let i=0;i<10;i++) {
+
+        }
+
+        console.log(i)
+
+    </script>
+
+</body>
+</html>

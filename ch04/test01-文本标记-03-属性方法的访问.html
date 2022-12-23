@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        访问属性和方法有两种方式，分别为：
+
+        ● 点操作符
+          ○ 对象.属性
+          ○ 对象.方法()
+
+        ● []操作符
+          ○ 对象[属性名]
+          ○ 对象[方法名]()
+          ○ 注意，中括号中的名称支持使用表达式运算
+
+
+          优先使用点操作符，特殊场景才使用[]
+    -->
+    <script>
+        var user = {
+            user_name: 'zs',
+            user_age: 18,
+
+            user_login: function () {
+                console.log('登录');
+            }
+        }
+
+        // 在中括号中，编写表达式，连接字符串，访问相关的属性和方法
+
+        // 点操作符
+        console.log(user.user_name);
+
+        // 中括号操作，支持表达式运算
+        console.log(user['user_' + 'age']);
+
+        var attrName = 'user_login' ;
+        user[attrName]();
+    </script>
+
+</body>
+</html>

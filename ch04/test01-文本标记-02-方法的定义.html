@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        JavaScript = ECMAScript + DOM + BOM
+
+        字面量也就是我们说的 文本标记法
+    -->
+    <script>
+        var user = {
+            // ES6之前
+            eat:function() {
+                console.log('吃');
+            },
+
+            // ES6后，省略冒号和functon关键字
+            sleep() {
+                console.log("睡觉");
+            },
+
+            study( hour ) {
+                console.log("学习了" + hour + "个小时")
+            }
+
+        }
+
+        console.log(user)
+    </script>
+
+</body>
+</html>
