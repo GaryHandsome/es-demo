@@ -9,22 +9,24 @@
 
 <body>
     <script>
+        // 动物
         function Animal() {
             this.pao = function () {
                 console.log("准备跑...");
             }
         }
 
+        // 麻省
         function MaQue() {
             this.pao = function () {
+                // 调用 MaQue 原型对象的 pao 这个方法
+                // 也就是说，调用父对象的方法
                 this.__proto__.pao() ;
                 console.log("麻雀跑");
             }
         }
 
-
-
-
+        // 兔子
         function TuZi() {
             this.pao = function () {
                 this.__proto__.pao() ;
@@ -32,6 +34,7 @@
             }
         }
 
+        // 老虎
         function LaoHu() {
             this.pao = function () {
                 this.__proto__.pao() ;
@@ -43,16 +46,20 @@
         // 创建父类对象
         var dw = new Animal();
 
+        // 指定原型对象
         MaQue.prototype = dw;
         TuZi.prototype = dw;
         LaoHu.prototype = dw;
 
 
+        // 猎人
         function LieRen() {
 
+            // 开枪 - 多态
             this.kaiQiang = function( animal ) {
 
                 var rand = Math.random() * 10 ;
+
                 if(rand > 6) {
                     console.log("打猎成功!");
                     return ;
@@ -67,6 +74,7 @@
         // 创建其它子类对象，测试（略）
 
         zs.kaiQiang(tiger) ;
+        zs.kaiQiang(new MaQue()) ;
 
 
 

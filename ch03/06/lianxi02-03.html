@@ -9,6 +9,7 @@
 
 <body>
     <script>
+        // 父构造方法
         function Animal(name,age) {
             this.name = name ;
             this.age = age ;
@@ -19,10 +20,14 @@
             console.log('动物吃');
         }
 
+        // 实例化Animal对象
         var dongWu = new Animal('小花',6) ;
 
+        // 基于某个对象作为原型对象来创建一个新的对象
+        // 也就是说，dongWu对象是cat对象的原型对象
         var cat = Object.create(dongWu) ;
 
+        // cat对象扩展自己的属性和方法
         cat.sex = '女' ;
         cat.catchMouse = function() {
             console.log(this.name + '抓老鼠');
@@ -30,7 +35,6 @@
 
         console.log(cat);
         
-        cat.catchMouse() ;
 
 
 

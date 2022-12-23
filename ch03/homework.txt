@@ -30,7 +30,8 @@
 
 要求：数组中的元素必须是数值型数据，否则抛出异常。
 
-    var arr = [1,2,3,4] ;
+    var arr = [1,2,3,4] ; // Array
+
     var s = arr.sum() ;
     // 输出:10
     console.log(s) ;
