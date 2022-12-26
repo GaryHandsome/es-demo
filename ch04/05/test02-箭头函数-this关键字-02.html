@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        比较箭头函数与非箭头函数中this关键字的指向问题
+
+
+        基于文本标记法定义对象 VS 基于构造方法定义对象
+
+    -->
+
+    <button>点我看看</button>
+
+    <script>
+
+
+        // 构造方法定义对象
+        function Obj() {
+            this.name = '测试',
+
+            // 非箭头函数
+            this.fun1 = function() {
+                // 这里的this，根据调用此方法动态绑定的，由其调用的上下文決定this关键字的指向
+                // 即，谁调用fun1方法，this表示的就是谁 - 复杂不可控
+                console.log(this);
+            } ,
+
+            // 箭头函数
+            this.fun2 = () => {
+                // 此箭头函数封装在构造方法中，必须实现化对象才可以访问fun2方法
+                // 当通过构造方法实例化对象时，this的指向就确定为当前实例化的对象 - Obj
+                // 箭头函数不动态绑定this关键字，箭头函数中的this，指向的是函数定义位置的上下文this（父作用域）
+                console.log(this);
+            }
+        }
+
+        // 实例化对象
+        let obj = new Obj() ;
+        // obj.fun1();
+        // document.querySelector("button").onclick = obj.fun1 ;
+
+        // obj.fun2() ;
+        document.querySelector("button").onclick = obj.fun2 ;
+
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        箭头函数 - 语法
+
+        箭头函数（Arrow Function）简化了函数的定义，它不仅是语法糖，同时也更正了this复杂不可控的情况。
+
+
+        [let 函数名称 = ]([参数列表]) => { 函数体 }
+
+        ()：代表是函数；
+        =>：必须要的符号，指向哪一个代码块；
+        {}：函数体
+
+    -->
+
+
+
+    <script>
+        // 函数的传统定义
+        // function sum(num1, num2) {
+        //     return num1 + num2;
+        // }
+        // let r = sum(1,2);
+        // console.log(r)
+
+        // 箭头函数的定义
+        let sum = (num1, num2) => {
+            return num1 + num2;
+        } ;
+        let r = sum(1,2);
+        console.log(r)
+
+
+    </script>
+
+</body>
+</html>
