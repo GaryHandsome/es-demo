@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        改变this的指向 - 比较箭头函数与非箭头函数中this关键字的指向问题
+
+
+        通过 call 方法调用，改变this的指向
+
+
+    -->
+
+
+
+    <script>
+
+        let user = {name:"张三"}
+
+        // 普通方法
+        function fun() {
+            // user对象 - 也意味着，在当前上下文中的this指向的是user对象
+            console.log(this) ;
+
+            // 箭头函数
+            return () => {
+                // 箭头函数不动态绑定this,在这里，当前上下文中的this指定被修改为user对象
+                // 因此，在当前的箭头函数中的this指向的当然是user对象了
+                console.log(this);
+            }
+        }
+
+        let returnFun = fun() ;
+        returnFun();
+
+        // let returnFun = fun.call(user) ;
+        // returnFun();
+
+
+
+
+    </script>
+
+</body>
+</html>
