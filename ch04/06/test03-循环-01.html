@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        forEach() 方法对数组的每个元素执行一次给定的函数。
+
+        数组.forEach(callback(currentValue [, index [, array]])[, thisArg])
+
+        callback为数组中每个元素执行的函数，该函数接收一至三个参数：
+
+        ●  currentValue
+            数组中正在处理的当前元素。
+        ●  index 可选
+            数组中正在处理的当前元素的索引。
+        ●  array 可选
+            forEach() 方法正在操作的数组。
+        ●  thisArg 可选
+            可选参数。当执行回调函数 callback 时，用作 this 的值。
+
+    -->
+
+
+
+    <script>
+        let arr = ['你好', '我好', '大家好'];
+
+        arr.forEach(function (v,i,a) {
+            console.log(v);     // 数组元素
+            console.log(i);     // 数组下标
+            console.log(a);     // 原数组
+
+            console.log('------------')
+        });
+
+
+    </script>
+
+</body>
+</html>

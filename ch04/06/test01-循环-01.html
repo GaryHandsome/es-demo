@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        for ... in
+            for...in语句以任意顺序遍历一个对象的除Symbol以外的可枚举属性。
+
+
+        语法：
+            for (variable in object) {
+              statement
+            }
+
+            ●  variable
+                在每次迭代时，variable会被赋值为不同的属性名。
+            ●  object
+                非Symbol类型的可枚举属性被迭代的对象。
+
+    -->
+
+
+
+    <script>
+        let arr = [100,200,300] ;
+
+        // 在循环遍历数组时，迭代变量指向的是数组的下标索引
+        for(let i in arr) {
+            // console.log(i)
+            console.log(arr[i])
+        }
+
+        // for(let i=0;i<arr.length;i++) {
+        //     console.log(arr[i])
+        // }
+
+
+    </script>
+
+</body>
+</html>
