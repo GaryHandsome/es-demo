@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        解构的特殊使用
+
+    -->
+
+
+
+    <script>
+        // 1.按顺序对应赋值，逗号表示跳过
+        // let [a, , b, , c] = [100, 200, 300, 400, 500, 600];
+        // console.log(a)	// 100
+        // console.log(b)	// 300
+        // console.log(c)	// 500
+
+
+        // 2.数组中的元素可以是任意类型的数据
+        // let [aa, bb, cc, dd] = ['AA', [true, 20], { name: 'zs' }, function () { console.log('函数'); }];
+        // console.log(aa);
+        // console.log(bb);
+        // console.log(cc);
+        // dd() ;
+
+
+        // 3.结合rest使用
+        let [aaa,...bbb] = [1,2,3,4,5] ;
+        console.log(aaa);
+        console.log(bbb); // 数组
+
+
+
+    </script>
+
+</body>
+</html>

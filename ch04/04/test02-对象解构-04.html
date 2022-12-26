@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        解构
+            解构（Destructuring）是ES6新增的一个赋值方法。
+            按照对应的位置，从数组或对象中提取值，然后赋值给变量。
+            使用解构将极大的方便从数组或对象中取值。
+
+       语法：let|var|const {属性名1[:别名],...,属性名N[:别名]} = 对象 ;
+            按顺序把对象的属性值赋值给属性名1，属性2，...。或赋值给相应的别名变量。
+
+
+    -->
+
+
+
+    <script>
+        //结合 rest 的使用
+        let {username,...attrs} = {username:'小四',age:20,sex:'女'}
+
+        console.log(username);		    // 小四
+        console.log(attrs);				// {age:20,sex:'女'}
+
+    </script>
+
+</body>
+</html>
