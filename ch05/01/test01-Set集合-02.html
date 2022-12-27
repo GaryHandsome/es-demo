@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        Set集合 - 不允许存储重复的数据
+
+        语法：
+            let s1 = new Set() ;
+
+            let s2 = new Set([数组]) ;
+
+        常用的API方法
+            ● add(value)：添加某个值，返回 Set 结构本身
+            ● delete(value)：删除某个值，返回一个布尔值，表示删除是否成功
+            ● has(value)：返回一个布尔值，表示该值是否为 Set 的成员
+            ● clear()：清除所有成员，没有返回值
+    -->
+    <script>
+        // 创建一个空Set集合
+        let set = new Set() ;
+
+        set.add("你好") ;
+        set.add("我好").add("大家好") ;
+
+        set.delete("我好");
+        let bl = set.has("大家乐") ;
+        set.clear()
+
+        console.log(set)
+        console.log(bl)
+
+    </script>
+
+</body>
+</html>
