@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        filter : 过滤数组
+
+        语法：
+            let 新数组 = 数组.filter(回调函数) ;
+
+        说明：
+            回调函数的参数与forEach相同；
+            返回一个新数组，用于存储被过滤的结果
+    -->
+
+
+
+    <script>
+        let arr = [11, 22, 33, 44, 55, 66];
+
+        // 参数同forEach
+        let newArr = arr.filter(function (value, index, array) {
+            // 参数一是:数组元素
+            // 参数二是:数组元素的索引
+            // 参数三是:当前的数组
+            // return 表示满足条件就被过滤到新的数组中，否则就被过滤掉 - 根据具体业务逻辑进行判断
+            return value >= 50;
+        });
+
+        // [55,66]，返回经过滤后的一个新数组
+        console.log(newArr);
+
+
+    </script>
+
+</body>
+</html>

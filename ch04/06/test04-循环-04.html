@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        filter : 过滤数组
+
+        语法：
+            let 新数组 = 数组.filter(回调函数) ;
+
+        说明：
+            回调函数的参数与forEach相同；
+            返回一个新数组，用于存储被过滤的结果
+    -->
+
+
+
+    <script>
+        // 实际应用
+
+        // 定义数组，判断数组各元素中的status属性是否都为 true
+        const arr = [
+            { id:1, name:'苹果', status:true, price:10, count:1 },
+            { id:2, name:'雪梨', status:false, price:20, count:2 },
+            { id:3, name:'草莓', status:true, price:30, count:3 }
+        ] ;
+
+        // 过滤选中的商品
+        // let newArr = arr.filter(item=>item.status) ;
+        // newArr.forEach(item=>console.log(item.name))
+
+        // let newArr = arr.filter(function(product){
+        //     return product.status;
+        // }) ;
+
+        // newArr.forEach(function(product){
+        //     console.log(product.name)
+        //     console.log(product.price)
+        //     console.log("------------")
+        // })
+
+        arr.filter(p => p.status).forEach(product => {
+            console.log(product.name)
+            console.log(product.price)
+            console.log("------------")
+        });
+
+
+        // 方法一
+        // 定义累加变量
+        // let total = 0 ;
+        // arr.filter(item=>item.status).forEach(item=>{
+        //     total = total + item.price * item.count ;
+        // }) ;
+        // console.log(total);
+
+        // 方法二
+        // arr.filter(item=>item.status).reduce((累加变量,循环的当前元素)=>{},初始值);
+        // arr.filter(item=>item.status).reduce((total,item)=>{
+        //     total = total + item.price * item.count ;
+        //     return total ;
+        // },0);
+
+        // 简化
+        // arr.filter(item=>item.status).reduce((total,item)=>total = total + item.price * item.count,0);
+
+
+    </script>
+
+</body>
+</html>

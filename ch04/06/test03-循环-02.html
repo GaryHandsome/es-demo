@@ -26,15 +26,12 @@
 
 
     <script>
+        // forEach为遍历数组元素提供了方便性
         let arr = ['你好', '我好', '大家好'];
 
-        arr.forEach(function (v,i,a) {
-            console.log(v);     // 数组元素
-            console.log(i);     // 数组下标索引
-            console.log(a);     // 原数组
-            console.log(this)
-            console.log('------------')
-        },"好好学习，天天向上");
+        arr.forEach(v => console.log(v));
+
+        // 注意：forEach不能停止或退出
 
 
     </script>
