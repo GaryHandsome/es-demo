@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        some : 查找数组中是否有满足条件的元素。如果有则返回true，否则返回false
+
+        返回的是一个布尔值
+
+
+        注意：区别forEach
+        ● forEach循环：一旦循环开始，不能终止循环
+        ● some循环：返回true时，终止循环
+    -->
+
+
+
+    <script>
+        let arr = [11, 22, 33, 44, 55, 66];
+
+        // 参数同forEach
+        // 查找数组中是否有满足条件的元素
+        // 如果不满足，则返回false
+        // 如果查找到满足条件的一个元素，则返回true
+        let bl = arr.some(function (value, index, array) {
+            // 参数一是:数组元素
+            // 参数二是:数组元素的索引
+            // 参数三是:当前的数组
+            return value >= 50;
+        });
+
+        // true，返回是否存在满足条件的元素
+        console.log(bl);
+
+    </script>
+
+</body>
+</html>

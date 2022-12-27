@@ -28,10 +28,6 @@
             { id:3, name:'草莓', status:true, price:30, count:3 }
         ] ;
 
-        // 过滤选中的商品
-        // let newArr = arr.filter(item=>item.status) ;
-        // newArr.forEach(item=>console.log(item.name))
-
         // let newArr = arr.filter(function(product){
         //     return product.status;
         // }) ;
@@ -42,13 +38,15 @@
         //     console.log("------------")
         // })
 
-        arr.filter(p => p.status).forEach(product => {
-            console.log(product.name)
-            console.log(product.price)
-            console.log("------------")
-        });
+        // 过滤选中的商品 - 过滤数组的同时，遍历数组 - 打印输出商品的名称和价格
+        // arr.filter(p => p.status).forEach(product => {
+        //     console.log(product.name)
+        //     console.log(product.price)
+        //     console.log("------------")
+        // });
 
 
+        // 需求：计算勾选商品的总价
         // 方法一
         // 定义累加变量
         // let total = 0 ;
@@ -59,13 +57,14 @@
 
         // 方法二
         // arr.filter(item=>item.status).reduce((累加变量,循环的当前元素)=>{},初始值);
-        // arr.filter(item=>item.status).reduce((total,item)=>{
+        // let total = arr.filter(item=>item.status).reduce((total,item)=>{
         //     total = total + item.price * item.count ;
         //     return total ;
         // },0);
+        // console.log(total)
 
         // 简化
-        // arr.filter(item=>item.status).reduce((total,item)=>total = total + item.price * item.count,0);
+        arr.filter(item=>item.status).reduce((total,item)=>total = total + item.price * item.count,0);
 
 
     </script>

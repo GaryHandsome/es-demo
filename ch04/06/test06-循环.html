@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        every : 测试一个数组内的所有元素是否都能通过某个指定函数的测试。
+        如果数组中的每个元素都满足指定条件则返回true，否则返回false。
+
+        返回的是一个布尔值
+
+
+        区别于：some
+
+        every：每一个（所有）
+        some：一些
+
+    -->
+
+
+
+    <script>
+        // 定义数组，判断数组各元素中的status属性是否都为 true
+        const arr = [
+            { id:1, name:'苹果', status:true },
+            { id:2, name:'雪梨', status:true },
+            { id:3, name:'草莓', status:true }
+        ]
+
+        const r = arr.every(function(item){
+            return item.status== true;
+        }) ;
+
+        //const r = arr.every(item => item.status) ;
+        console.log(r);
+
+    </script>
+
+</body>
+</html>
