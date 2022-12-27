@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        Symbol类型的一些特殊操作
+    -->
+
+    <script>
+        let sym = Symbol('name') ;
+
+        // 输出Symbol的描述信息 - name
+        console.log(sym.description);
+
+        // boolean运算，返回false
+        console.log(!sym);
+
+        // 转换为字符串输出
+        console.log(sym.toString());
+
+        // 错误，进行加法运算，无法自动转换为字符串
+        console.log(sym + '-');
+
+
+
+    </script>
+
+</body>
+</html>

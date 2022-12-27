@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        Symbol - 唯一性 - 像Java中的UUID编码
+
+        ES6 引入了一种新的原始数据类型 Symbol ，表示独一无二的值，最大的用法是用来定义对象的唯一属性名.
+
+
+        我们可以通过Symbol()函数会返回symbol类型的值，该类型具有静态属性和静态方法
+
+        语法：
+            Symbol([description]) - 返回Symbol类型的值（唯一）
+
+            description：可选的，字符串或数字类型。对symbol的描述，可用于调试但不是访问symbol本身
+
+    -->
+
+
+
+    <script>
+        // 创建了三个Symbol类型的数据
+        let sym1 = Symbol();
+        let sym2 = Symbol('name');
+        let sym3 = Symbol(123456);
+
+        console.log(sym1) ;
+        console.log(typeof sym1) ;
+
+
+    </script>
+
+</body>
+</html>

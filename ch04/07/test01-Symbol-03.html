@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        使用Symbol类型作为对象的属性
+    -->
+
+    <script>
+        // 创建一个Symbol，用于表示对象的name属性
+        const sym_name = Symbol('name') ;
+
+        // 创建一个Symbol，用于表示对象的age属性
+        const sym_age = Symbol('age') ;
+
+        // 创建一个对象，并使用以上定义的Symbol类型的数据作为对象的属性
+        // 注意：使用Symbol类型数据作为对象属性名时，必须加上中括号，如 [symbole]
+        let obj = {
+            [sym_name] : 'zs' ,
+            [sym_age] : 18
+        }
+
+        console.log(obj[sym_name]) ;        // zs
+        console.log(obj[sym_age]) ;         // 18
+        console.log(obj) ;                  // {..}
+
+
+
+    </script>
+
+</body>
+</html>

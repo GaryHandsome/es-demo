@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        全局Symbol 及 全局Symbol注册表的使用
+    -->
+
+    <script>
+        // 创建一个全局 Symbol
+        let name = Symbol.for('name') ;
+
+        // 创建一个对象，使用Symbol作为属性
+        let user = {
+            [name] : 'tom'
+        } ;
+
+        // 在全局注册表中，获取Symbol
+        let uname = Symbol.for('name') ;
+
+        // 判断从全局注册中获取的Symbol类型数据是否一样
+        console.log(name === uname);
+
+        // 输出对象的属性
+        console.log(user[uname]);
+        console.log(user[name]);
+
+
+
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        Symbol类型的应用 -- 枚举
+    -->
+
+    <script>
+        // 定义一个对象，实现枚举的作用 - 枚举，定义了三种不一样的状态，分别为：高、中、低
+        let TYPES = {
+            HIGH : Symbol() ,
+            MIDDLE : Symbol() ,
+            LOW : Symbol()
+        } ;
+
+        // 三个属性使用了Symbol类型数据，虽然都一样，但返回的是唯一的值
+        console.log(TYPES.HIGH);
+        console.log(TYPES.HIGH==TYPES.MIDDLE);
+
+        // 逻辑判断 - 需求
+        let type = TYPES.HIGH ;
+        if(type == TYPES.HIGH) {
+            console.log('高');
+        }
+
+
+
+
+
+    </script>
+
+</body>
+</html>

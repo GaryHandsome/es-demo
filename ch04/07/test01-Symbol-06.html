@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        全局Symbol 及 全局Symbol注册表的使用
+    -->
+
+    <script>
+        // 创建一个全局 Symbol
+        let globalSym = Symbol.for("foo");
+
+        // Symbol.keyFor(Symbol类型的数据)：获取Symbol类型数据的key值
+        let key = Symbol.keyFor(globalSym);
+        console.log(key)
+
+        // string
+        let r = typeof Symbol.keyFor(globalSym);
+        console.log(r)
+
+        // 定义一个非全局Symbol类型数据 - 注意：非全局的Symbol不存在key
+        let localSym = Symbol();
+
+        // undefined
+        let key1 = Symbol.keyFor(localSym);
+        console.log(key1)
+
+
+
+
+
+    </script>
+
+</body>
+</html>
