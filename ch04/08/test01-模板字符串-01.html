@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        模板字符串 - 使用反引号（``）引住的字符串
+            let 变量 = `` ；
+
+        好处：方便字符串的连接、使用变量、使用方法
+
+        在``中，通过${}访问变量和方法
+
+        普通字符串的定义："" 或 ''
+            let 变量 = ""
+            let 变量 = ''
+
+    -->
+
+
+
+    <script>
+        let obj = {
+            name : 'zs' ,
+            age : 18 ,
+            sex : '男'
+        }
+
+        // console.log("姓名："+obj.name + ",年龄："+obj.age+"，性别："+obj.sex) ;
+        let str = `姓名：${obj.name}，年龄：${obj.age}，性别：${obj.sex}` ;
+
+        console.log(str)
+
+
+    </script>
+
+</body>
+</html>
