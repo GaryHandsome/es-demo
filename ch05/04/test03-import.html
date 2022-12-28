@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        多次导入具有单例性 - 加载一次
+    -->
+    <script type="module">
+        // 第一次导入 - 常规导入
+        import {data,obj} from './test03-export.js'
+
+        // 第二次导入 - 重命名导入
+        import {data as dd,obj as oo} from './test03-export.js'
+
+        // 使用...
+    </script>
+
+</body>
+</html>

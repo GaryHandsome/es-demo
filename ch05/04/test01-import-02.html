@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        命名空间导入 - 访问时：命名空间.xxx
+    -->
+    <script type="module">
+        // 在导入模块时，指定了一个统一的命名空间，命名空间.xxx
+        import * as n from './test01-export.js'
+
+        console.log(n.m)
+
+        console.log(n.obj)
+
+        n.fun() ;
+    </script>
+
+</body>
+</html>

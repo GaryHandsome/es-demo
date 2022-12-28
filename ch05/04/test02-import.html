@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        导入的内容具有不可修改性
+    -->
+    <script type="module">
+        // 在导入模块时，指定了一个统一的命名空间，命名空间.xxx
+        import {data,obj,arr} from './test02-export.js'
+
+        // 改变导入的内容 - 错误
+        // data = 300 ;
+
+        // 注意：对象的内容可以修改（因为对象地址没变）
+        // obj.age = 30 ;
+        // console.log(obj);
+
+        // 与上面的基本类型一样，错误 - 对象的地址（引用）改变了
+        // obj = {name:'zs'}
+
+        arr.push(100)
+        console.log(arr)
+
+    </script>
+
+</body>
+</html>

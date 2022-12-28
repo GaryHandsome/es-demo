@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        默认导入 - import 名称 from '路径+文件'
+
+        其中，名称代表的是默认导出的变量、对象、函数
+    -->
+    <script type="module">
+        // 在导入模块的同时，重新命名
+        import sayHello from './test01-export.js'
+
+        sayHello()
+    </script>
+
+</body>
+</html>

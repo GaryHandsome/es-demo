@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        导入重命名
+    -->
+    <script type="module">
+        // 在导入模块的同时，重新命名
+        import {m as weight,obj as user,fun as sayHello} from './test01-export.js'
+
+        console.log(weight)
+
+        console.log(user)
+
+        sayHello() ;
+    </script>
+
+</body>
+</html>

@@ -14,14 +14,15 @@
             1）必须使用type属性，指定值为module
             2）使用import导入模块
             3）必须以服务器的方式运行
-            4）导入的成员必须与在导出模块中定义的名称一致，否则将报语法错误 - 使用别名
     -->
     <script type="module">
-        import {sayHello} from './test01-helloworld.js'
+        import {m,obj,fun} from './test03-export.js'
 
+        console.log(m)
 
-        // 第四：使用导入模块的内容
-        sayHello();
+        console.log(obj)
+
+        fun() ;
     </script>
 
 </body>
