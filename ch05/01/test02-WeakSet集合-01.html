@@ -9,6 +9,10 @@
         WeakSet集合 - 只能存储对象
 
         区别 Set 与 WeakSet的使用
+
+        简单理解为：
+            WeakSet集合存储的是对象的引用；
+            Set集合存储的是对象本身
     -->
     <script>
         // 创建一个空WeakSet集合
@@ -26,6 +30,7 @@
 
         set.add(obj)
 
+        // 移出引用
         obj = null ;
 
         console.log(set)

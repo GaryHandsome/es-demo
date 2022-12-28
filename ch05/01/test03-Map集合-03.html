@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+       Map集合 - 用于存储"键-值"对数据
+
+       Map集合的遍历
+
+    -->
+    <script>
+        // 创建Map集合的同时，初始化数据
+        const m = new Map([
+            ['name','zs'],
+            ['age',18],
+            ['sex','男']
+        ]);
+
+        // 1.for...of + 解构实现Map集合的遍历
+        // for(let [k,v] of m) {
+        //     console.log(`键：${k} - 值：${v}`)
+        // }
+
+        // 2.keys()：获取所有键的集合
+        // let ks = m.keys();
+        // for(let v of ks) {
+        //     console.log(v)
+        // }
+
+        // 3.values()：获取所有值的集合
+        // let vs = m.values();
+        // for(let v of vs) {
+        //     console.log(v)
+        // }
+
+        // 4.entries()：获取所有元素（[key,value]）集合 - 建议使用第一个方法（简单）
+        // let es = m.entries();
+        // for(let [k,v] of es) {
+        //     console.log(`键：${k} - 值：${v}`)
+        // }
+
+        // 5.可以使用forEach遍历map集合
+        // m.forEach(function (k,v){
+        //     console.log(`键：${k} - 值：${v}`)
+        // })
+
+        m.forEach((k,v)=>console.log(`键：${k} - 值：${v}`))
+
+
+
+    </script>
+
+</body>
+</html>

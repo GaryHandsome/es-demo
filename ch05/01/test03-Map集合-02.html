@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+       Map集合 - 用于存储"键-值"对数据
+
+       Map集合的相关API方法
+
+    -->
+    <script>
+        // 创建Map集合的同时，初始化数据
+        const m = new Map([
+            ['name','zs'],
+            ['age',18],
+            ['sex','男']
+        ]);
+
+        // 1.size属性 : 返回元素个数
+        // console.log(m.size)
+
+        // 2.set(key,value) : 添加元素
+        // m.set('score',99);
+        // console.log(m)
+
+        // 3.get(key) ： 获取元素
+        // let age = m.get('age');
+        // console.log(age)
+
+        // 4.has(key) : 判断是否存在某个元素
+        // let bl = m.has('score');
+        // console.log(bl)
+
+        // 5.delete(key) : 删除元素
+        // m.delete('sex');
+        // console.log(m)
+
+        // 6.clear() : 清空元素
+        m.clear();
+        console.log(m)
+
+    </script>
+
+</body>
+</html>
