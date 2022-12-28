@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        按需导入可以和默认导入一起使用
+
+        import 默认导入名称,{ 导出的名称,... } from '模块文件'
+
+    -->
+    <script type="module">
+        // 注意：默认导入的名称必须放在前面
+        import data,{i,sum} from './test04-export.js'
+
+        console.log(data);
+
+        console.log(i);
+
+        sum(data,100) ;
+    </script>
+
+</body>
+</html>
