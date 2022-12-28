@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        // 第一：定义类
+        class Animal{
+            constructor(name,age) {
+                this.name = name ;
+                this.age = age ;
+            }
+
+            eat() {
+                console.log("吃")
+            }
+        }
+
+        // 第二：定义子类
+        class Cat extends Animal {
+            constructor(name,age,sex) {
+                // 必须放在第一行，super必须先于this使用
+                super(name,age) ;
+                this.sex = sex ;
+            }
+
+            sleep() {
+                console.log("睡觉")
+            }
+        }
+
+        // 第三：实例化对象
+        let xh = new Cat('小花',3,'雌') ;
+
+        xh.eat();
+        xh.sleep();
+
+        console.log(xh)
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

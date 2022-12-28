@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        // 第一：定义类
+        class Person{
+            // 1.构造方法
+            constructor(name,sex,age) {
+                this.name = name;
+                this.sex = sex ;
+                this.age = age ;
+            }
+
+            // 2.实例属性 - 通过实例（对象）访问的属性
+            get weight() {
+                return this._weight ;
+            }
+
+            set weight(val) {
+                // 逻辑处理 ...
+                this._weight = val ;
+            }
+
+            // 3.静态属性 - 通过类名访问的属性
+            static get score() {
+                return this._score ;
+            }
+
+            static set score(val) {
+                // 逻辑处理 ...
+                this._score = val ;
+            }
+
+
+            // 4.实例方法 - 通过实例（对象）访问的方法
+            sum(x,y) {
+                console.log(`两数之和为：${x+y}`)
+            }
+
+            // 5.静态方法 - 通过类名访问的方法
+            static eat() {
+                console.log("吃")
+            }
+
+        }
+
+        // 第二：实例化对象
+        let zs = new Person('张三','男',18);
+        zs.weight = 60 ;
+        Person.score = 99 ;
+
+        console.log(zs)
+
+        // 调用实例方法 - 对象名称.实例化方法()
+        zs.sum(1,1)
+
+        // 调用静态方法 - 类名.静态方法()
+        Person.eat();
+
+
+        console.log("分数为：" + Person.score)
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
