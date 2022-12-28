@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        第三：创建一个html页面，在此页面以模块化的形式引入JS文件
+
+        导入语法：import {导出的变量、对象、函数列表} from '模块文件(路径+文件名)'
+    -->
+    <script type="module">
+        import {sayHello} from './test01-helloworld.js'
+
+        sayHello();
+    </script>
+
+</body>
+</html>
