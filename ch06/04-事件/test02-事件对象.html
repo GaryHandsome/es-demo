@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 第一：下载、导入Vue框架的JS文件 -->
+    <script type="text/javascript" src="../js/vue.min.js"></script>
+</head>
+<body>
+    <!--
+        事件对象：event
+            无参方法：事件对象默认以第一个参数进行传递
+            有参方法：使用一个特殊的变量（$event）进行传递，而$event必须是最后一个参数进行传递
+    -->
+    <!-- 第二：结构化页面，设置挂载点 -View（视图层）-->
+    <div id="app">
+        <button v-on:click="aa">无参方法</button>
+        <button v-on:click="bb(11,22,$event)">有参方法</button>
+    </div>
+    <script>
+        // 第三：创建Vue实例 - 定义相关的参数信息（选项） - {} - view model（控制层）
+        let vm = new Vue({
+            // 1.绑定挂载点：绑定DOM元素，设置Vue实例的挂载点
+            // 注意：Vue实例只作用于挂载点及挂载点的子元素节点
+            el:'#app',
+            // 3.定义事件响应方法
+            methods:{
+                aa:function(event) {
+                    alert("你好-" + event.target.innerText)
+                },
+                bb(num1,num2,e) {
+                    alert(`大家好-${num1+num2}-${e.target.innerText}`)
+                }
+            }
+        }) ;
+
+    </script>
+
+
+
+
+
+
+
+
+</body>
+</html>

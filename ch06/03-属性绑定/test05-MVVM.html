@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 第一：下载、导入Vue框架的JS文件 -->
+    <script type="text/javascript" src="../js/vue.min.js"></script>
+</head>
+<body>
+    <!--
+        MVVM
+
+        MVC 是后端的分层开发概念；
+        MVVM是前端视图层的概念，主要关注于视图层分离，
+        也就是说：MVVM把前端的视图层，分为了 三部分 Model, View , VM（ViewModel）。
+
+        ● M（ model） - 数据层
+          ○ 页面中显示的数据都来自于数据层，也就是Vue实例中的data选项定义的数据
+        ● V（view）视图
+          ○ Vue中view，即我们的HTML页面
+        ● VM（view-model）控制器，将数据和视图层建立联系
+          ○ vm 即Vue的实例,就是vm
+
+    -->
+
+    <!-- 第二：结构化页面，设置挂载点 -View（视图层）-->
+    <div id="app">
+        <!-- 显示数据：插值表达式 - {{ 数据 | 表达式 }} -->
+        内容：{{ msg }}
+    </div>
+
+    <script>
+        // 第三：创建Vue实例 - 定义相关的参数信息（选项） - {} - view model（控制层）
+        let vm = new Vue({
+            // 1.绑定挂载点：绑定DOM元素，设置Vue实例的挂载点
+            // 注意：Vue实例只作用于挂载点及挂载点的子元素节点
+            el:'#app',
+            // 2.定义数据 - data选项（参数）必须是一个对象 - 用户根据需要，在此对象中定义相关的数据 - ajax拉取数据库的数据也必须在此对象中定义
+            data:{
+                // Model（数据层） - ajax拉取后台数据
+                msg:'Hello,World',
+                product_list:[]
+            }
+        }) ;
+
+    </script>
+
+
+
+
+
+
+
+
+</body>
+</html>
