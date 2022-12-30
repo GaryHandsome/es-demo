@@ -10,12 +10,16 @@
     <!--
         事件对象：event
             无参方法：事件对象默认以第一个参数进行传递
-            有参方法：使用一个特殊的变量（$event）进行传递，而$event必须是最后一个参数进行传递
+
+            有参方法：使用一个特殊的变量（$event）进行传递，而$event必须是最后一个参数进行传递（建议）
     -->
     <!-- 第二：结构化页面，设置挂载点 -View（视图层）-->
     <div id="app">
-        <button v-on:click="aa">无参方法</button>
-        <button v-on:click="bb(11,22,$event)">有参方法</button>
+        <!-- 调用无参函数时，事件函数的第一个参数，默认可以获取事件对象 -->
+        <button v-on:click="aa">无参方法-01</button>
+        <button v-on:click="bb">无参方法-02</button>
+        <!-- 调用有参函数时，事件对象必须作为最后一个参数显式传递，且事件对象的名称必须是$event -->
+        <button v-on:click="cc(11,22,$event)">有参方法</button>
     </div>
     <script>
         // 第三：创建Vue实例 - 定义相关的参数信息（选项） - {} - view model（控制层）
@@ -26,9 +30,15 @@
             // 3.定义事件响应方法
             methods:{
                 aa:function(event) {
+                    console.log(event)
                     alert("你好-" + event.target.innerText)
                 },
-                bb(num1,num2,e) {
+                bb:function() {
+                    let event = arguments[0];
+                    console.log(event)
+                    alert("你好-" + event.target.innerText)
+                },
+                cc(num1,num2,e) {
                     alert(`大家好-${num1+num2}-${e.target.innerText}`)
                 }
             }

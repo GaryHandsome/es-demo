@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 第一：下载、导入Vue框架的JS文件 -->
+    <script type="text/javascript" src="../js/vue.min.js"></script>
+
+
+</head>
+<body>
+    <!--
+        事件修饰符
+            ● .stop：阻止冒泡
+            ● .prevent：阻止默认行为
+
+
+    -->
+    <!-- 第二：结构化页面，设置挂载点 -View（视图层）-->
+    <div id="app">
+        <!-- a标记默认行为：超链接到指定的URL地址 -->
+        <a href="http://www.baidu.com">百度一下</a>
+
+        <!-- 绑定单击事件并阻止默认行为，同时没有指定响应的方法 -->
+        <a href="http://www.baidu.com" @click.prevent>百度一下</a>
+
+        <!-- 绑定单击事件并阻止默认行为，同时指定响应的方法 -->
+        <a href="http://www.baidu.com" @click.prevent="aa">百度一下</a>
+
+        <!-- 修改符可以串联使用 -->
+        <a href="http://www.baidu.com" @click.prevent.stop>百度一下</a>
+    </div>
+    <script>
+        // 第三：创建Vue实例 - 定义相关的参数信息（选项） - {} - view model（控制层）
+        let vm = new Vue({
+            // 1.绑定挂载点：绑定DOM元素，设置Vue实例的挂载点
+            // 注意：Vue实例只作用于挂载点及挂载点的子元素节点
+            el:'#app',
+            // 3.定义事件响应方法
+            methods:{
+                aa() {
+                    if(confirm('您真的要跳转到百度这个网站吗？')) {
+                        location.href = 'http://www.baidu.com' ;
+                        return;
+                    }
+                    console.log("您按了取消按钮...")
+                }
+            }
+        }) ;
+
+    </script>
+
+
+
+
+
+
+
+
+</body>
+</html>
