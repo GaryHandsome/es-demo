@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!-- 第一：下载、导入Vue框架的JS文件 -->
+    <script src="../js/vue.min.js" type="text/javascript"></script>
+</head>
+<body>
+    <!--
+        单向绑定 - 数据决定页面显示，反之页面不能决定数据。
+
+        实现：使用v-bind指令实现单向绑定。
+
+    -->
+
+    <!--第二：结构化页面，设置挂载点-->
+    <div id="app">
+        <!-- 显示数据 - 插值表达式 - {{ 数据 | 表达式 }} -->
+        输入：<input type="text" v-bind:value="msg"/>
+    </div>
+
+    <script>
+        // 第三：创建Vue实例 - 定义相关的参数信息（选项） - {}
+        let vm = new Vue({
+            // 1.绑定挂载点：绑定DOM元素，设置Vue实例的挂载点
+            // 注意：Vue实例只作用于挂载点及挂载点的子元素节点
+            el:'#app' ,
+
+            // 2.定义数据 - data选项（参数）必须是一个对象 - 用户根据需要，在此对象中定义相关的数据 - ajax拉取数据库的数据也必须在此对象中定义
+            data:{
+               msg:'好好学习，天天向上'
+            }
+        }) ;
+    </script>
+</body>
+</html>
