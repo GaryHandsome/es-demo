@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 第一：下载、导入Vue框架的JS文件 -->
+    <script type="text/javascript" src="../js/vue.min.js"></script>
+
+
+</head>
+<body>
+
+    <!-- 第二：结构化页面，设置挂载点 -View（视图层）-->
+    <div id="app">
+        <!-- 数据双向绑定 -->
+        数据一：<input type="text" v-model:value="num1"/><br/>
+        数据二：<input type="text" v-model:value="num2"/>
+        <!-- 数据单向绑定：jieGuo必须经过Vue计算后才回显的数据 -->
+        <input type="text" v-bind:value="jieGuo"/>
+        <p/>
+        <button type="button" v-on:click="yunSuan">+</button>
+        <button type="button" v-on:click="yunSuan">-</button>
+        <button type="button" @click="yunSuan">*</button>
+        <button type="button" @click="yunSuan">/</button>
+    </div>
+
+    <script>
+
+        // 第三：创建Vue实例 - 定义相关的参数信息（选项） - {} - view model（控制层）
+        let vm = new Vue({
+            // 1.绑定挂载点：绑定DOM元素，设置Vue实例的挂载点
+            // 注意：Vue实例只作用于挂载点及挂载点的子元素节点
+            el:'#app',
+            // 2.定义数据
+            data:{
+                num1:1,
+                num2:2,
+                jieGuo:3
+            },
+            // 3.定义事件响应方法
+            methods:{
+                // 定义一个方法，同时处理页面中的四个按钮
+                yunSuan(event) {
+                    // 1.根据事件对象，获取事件目标对象，进而获取相关的按钮
+                    let op = event.target.innerText ;
+
+                    // 2.判断按钮，并进行相关的运算
+                    switch (op) {
+                        case '+':
+                            this.jieGuo = this.num1*1 + this.num2*1 ;
+                            break ;
+                        case '-':
+                            this.jieGuo = this.num1 - this.num2 ;
+                            break ;
+                        case '*':
+                            this.jieGuo = this.num1 * this.num2 ;
+                            break ;
+                        case '/':
+                            if(this.num2==0) {
+                                this.jieGuo = 'ERROR-除数不能为零！' ;
+                                break ;
+                            }
+                            this.jieGuo = this.num1 / this.num2 ;
+                    }
+                }
+            }
+        }) ;
+
+    </script>
+
+
+
+
+
+
+
+
+</body>
+</html>
