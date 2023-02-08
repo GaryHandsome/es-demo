@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 第一：下载、导入Vue框架的JS文件 -->
+    <script type="text/javascript" src="../js/vue.min.js"></script>
+</head>
+<body>
+
+    <!-- 第二：结构化页面，设置挂载点 -View（视图层）-->
+    <div id="app">
+        输入姓名：<input type="text" v-model:value="name"/>
+        <button @click="handle">提交</button>
+
+        <p/>
+
+        问好：{{ msg }}
+    </div>
+
+    <script>
+        // 第三：创建Vue实例 - 定义相关的参数信息（选项） - {} - view model（控制层）
+        let vm = new Vue({
+            // 1.绑定挂载点
+            el:'#app',
+            // 2.定义后台数据 - 业务逻辑(Java + Servlet + 数据库 + Ajax)
+            data:{
+                msg:'',
+                name:'张三'
+            },
+            // 3.定义相关的方法，用于响应事件
+            methods:{
+                handle() {
+                    this.msg = "Hello," + this.name ;
+                }
+            }
+        }) ;
+
+    </script>
+
+
+
+
+
+
+
+
+</body>
+</html>

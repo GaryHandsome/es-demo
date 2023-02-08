@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 第一：下载、导入Vue框架的JS文件 -->
+    <script type="text/javascript" src="../js/vue.min.js"></script>
+
+
+    <style>
+        .one {
+            color: red;
+            text-decoration: underline;
+            font-size: 50px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <!--
+        1.class样式处理
+            1）对象语法
+                <标签 v-bind:class="{ 样式类名称: true|false }"></标签>
+
+            2）数组语法
+                <标签 v-bind:class="[ 样式类名称: isActive ]"></标签>
+
+
+        2.style样式处理
+            1）对象语法
+
+            2）数组语法
+
+    -->
+
+
+    <!-- 第二：结构化页面，设置挂载点 -View（视图层）-->
+    <div id="app">
+        <!-- 1.传递写死的方式  -->
+        <div class="one">好好学习，天天向上</div>
+
+        <!-- 2.Vue动态绑定class属性(对象) - 还是死 -->
+        <div v-bind:class="{one:true}">好好学习，天天向上</div>
+        
+        <!-- 3.Vue动态绑定class属性(对象) - 动态切换 -->
+        <button @click="change">切换</button>
+        <div v-bind:class="isActive">好好学习，天天向上</div>
+    </div>
+
+    <script>
+        // 第三：创建Vue实例 - 定义相关的参数信息（选项） - {} - view model（控制层）
+        let vm = new Vue({
+            // 1.绑定挂载点
+            el:'#app',
+            // 2.定义后台数据 - 业务逻辑(Java + Servlet + 数据库 + Ajax)
+            data:{
+                isActive: { one:true }
+            },
+            // 3.定义相关的方法，用于响应事件
+            methods:{
+                change() {
+                    this.isActive.one = !this.isActive.one ;
+                }
+            }
+        }) ;
+
+    </script>
+
+
+
+
+
+
+
+
+</body>
+</html>
