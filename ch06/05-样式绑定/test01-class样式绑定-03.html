@@ -19,6 +19,10 @@
             font-style: italic;
         }
 
+        .three {
+            color: blue;
+        }
+
 
     </style>
 </head>
@@ -41,21 +45,9 @@
 
     <!-- 第二：结构化页面，设置挂载点 -View（视图层）-->
     <div id="app">
-        <!-- 1.传统写死的方式  -->
-        <div class="one">好好学习，天天向上</div>
+        <!-- 简化操作：就是把多个类样式放到数组中进行维护  -->
+        <div v-bind:class="arrClass">好好学习，天天向上</div>
 
-        <!-- 2.Vue动态绑定class属性(对象) - 还是死 -->
-        <div v-bind:class="{one:true}">好好学习，天天向上</div>
-
-        <!-- 3.Vue动态绑定class属性(对象) - 动态切换 -->
-        <button @click="change">切换</button>
-        <div v-bind:class="isActive">好好学习，天天向上</div>
-
-        <!-- 4.v-bind:class绑定多个属性值，支持简单运算 -->
-        <div v-bind:class="{one:true,two:2>1}">好好学习，天天向上</div>
-
-        <!-- 5.与原class属性共存 -->
-        <div v-bind:class="{one:true}" class="two">好好学习，天天向上</div>
     </div>
 
     <script>
@@ -65,13 +57,11 @@
             el:'#app',
             // 2.定义后台数据 - 业务逻辑(Java + Servlet + 数据库 + Ajax)
             data:{
-                isActive: { one:true }
+                arrClass:['one','two']
             },
             // 3.定义相关的方法，用于响应事件
             methods:{
-                change() {
-                    this.isActive.one = !this.isActive.one ;
-                }
+
             }
         }) ;
 

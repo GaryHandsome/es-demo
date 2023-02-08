@@ -8,16 +8,6 @@
 
 
     <style>
-        .one {
-            color: red;
-            text-decoration: underline;
-            font-size: 50px;
-        }
-
-        .two {
-            font-weight: bold;
-            font-style: italic;
-        }
 
 
     </style>
@@ -34,28 +24,31 @@
         2.style样式处理
             1）对象语法
 
-            2）数组语法
 
+                <标签 v-bind:style="{ css属性名称: css属性值,...}"></标签>
+
+                注意：
+                    如果data中的样式值没有指定单位，则在使用时补回来
+                    CSS属性名称可以用驼峰式 (camelCase) 或短横线分隔 (kebab-case，记得用引号括起来)
+                        比如：fontSize、"font-size"
+
+            2）数组语法
+                <标签 v-bind:style="[样式对象1, ...]"></标签>
+
+                样式对象语法为：
+                    {
+                        CSS属性名称:属性值 ,
+                        ....
+                    }
     -->
 
 
     <!-- 第二：结构化页面，设置挂载点 -View（视图层）-->
     <div id="app">
-        <!-- 1.传统写死的方式  -->
-        <div class="one">好好学习，天天向上</div>
 
-        <!-- 2.Vue动态绑定class属性(对象) - 还是死 -->
-        <div v-bind:class="{one:true}">好好学习，天天向上</div>
+        <!-- 2.Vue动态绑定style属性(数组) -->
+        <div v-bind:style="[aa, bb]">好好学习，天天向上</div>
 
-        <!-- 3.Vue动态绑定class属性(对象) - 动态切换 -->
-        <button @click="change">切换</button>
-        <div v-bind:class="isActive">好好学习，天天向上</div>
-
-        <!-- 4.v-bind:class绑定多个属性值，支持简单运算 -->
-        <div v-bind:class="{one:true,two:2>1}">好好学习，天天向上</div>
-
-        <!-- 5.与原class属性共存 -->
-        <div v-bind:class="{one:true}" class="two">好好学习，天天向上</div>
     </div>
 
     <script>
@@ -65,13 +58,17 @@
             el:'#app',
             // 2.定义后台数据 - 业务逻辑(Java + Servlet + 数据库 + Ajax)
             data:{
-                isActive: { one:true }
+                aa:{
+                    color:'red',
+                    fontSize:'50px'
+                },
+                bb:{
+                    "text-decoration":"underline"
+                }
             },
             // 3.定义相关的方法，用于响应事件
             methods:{
-                change() {
-                    this.isActive.one = !this.isActive.one ;
-                }
+
             }
         }) ;
 

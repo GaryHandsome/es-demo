@@ -14,6 +14,15 @@
             font-size: 50px;
         }
 
+        .two {
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        .three {
+            color: blue;
+        }
+
 
     </style>
 </head>
@@ -21,11 +30,10 @@
     <!--
         1.class样式处理
             1）对象语法
-                <标签 v-bind:class="{ 样式类名称: true|false }"></标签>
+                <标签 v-bind:class="{ 样式类名称1: true|false,... }"></标签>
 
             2）数组语法
-                <标签 v-bind:class="[ 样式类名称: isActive ]"></标签>
-
+                <标签 v-bind:class="[样式类名称1,...]"></标签>
 
         2.style样式处理
             1）对象语法
@@ -37,15 +45,14 @@
 
     <!-- 第二：结构化页面，设置挂载点 -View（视图层）-->
     <div id="app">
-        <!-- 1.传递写死的方式  -->
-        <div class="one">好好学习，天天向上</div>
+        <!-- 1.传统写死的方式  -->
+        <div class="one two">好好学习，天天向上</div>
 
-        <!-- 2.Vue动态绑定class属性(对象) - 还是死 -->
-        <div v-bind:class="{one:true}">好好学习，天天向上</div>
-        
-        <!-- 3.Vue动态绑定class属性(对象) - 动态切换 -->
-        <button @click="change">切换</button>
-        <div v-bind:class="isActive">好好学习，天天向上</div>
+        <!-- 2.Vue动态绑定class属性(数组) - 还是死 -->
+        <div v-bind:class="['one','two']">好好学习，天天向上</div>
+
+        <!-- 3.Vue动态绑定class属性(数组) - 动态切换 -->
+        <div v-bind:class="[aa,bb]">好好学习，天天向上</div>
     </div>
 
     <script>
@@ -55,13 +62,12 @@
             el:'#app',
             // 2.定义后台数据 - 业务逻辑(Java + Servlet + 数据库 + Ajax)
             data:{
-                isActive: { one:true }
+                aa:'one',
+                bb:'two'
             },
             // 3.定义相关的方法，用于响应事件
             methods:{
-                change() {
-                    this.isActive.one = !this.isActive.one ;
-                }
+
             }
         }) ;
 
