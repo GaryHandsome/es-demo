@@ -22,13 +22,20 @@
             <标签 v-for="(属性值,属性名称) in 对象"> 内容 </标签>
             <标签 v-for="(属性值,属性名称,索引) in 对象"> 内容 </标签>
 
+            注意：在循环中，可以通过绑定:key属性，
+            可以帮助Vue区分不同的元素，从而提高性能
+
+            :key属性的属性值要求是唯一的
+
     -->
 
 
     <!-- 第二：结构化页面，设置挂载点 -View（视图层）-->
     <div id="app">
         <ul>
-            <li v-for="(stuName,index) in stuArr"> {{ stuName }} - <b v-text="index"></b> </li>
+            <li v-for="(stuName,index) in stuArr" :key="index">
+                {{ stuName }} - <b v-text="index"></b>
+            </li>
         </ul>
     </div>
 

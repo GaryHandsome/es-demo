@@ -26,19 +26,19 @@
             可以帮助Vue区分不同的元素，从而提高性能
 
             :key属性的属性值要求是唯一的
+
     -->
 
 
     <!-- 第二：结构化页面，设置挂载点 -View（视图层）-->
     <div id="app">
         <ul>
-            <li v-for="stuName in stuArr"> {{ stuName }} </li>
+            <li v-for="(stu,index) in stuArr" :key="stu.stuNo">
+                {{ stu.stuNo }}  -
+                {{ stu.name }} -
+                {{ stu.age }}
+            </li>
         </ul>
-
-        <!--
-        <hr/>
-        <p v-for="stuName in stuArr"> {{ stuName }} </p>
-        -->
     </div>
 
     <script>
@@ -49,7 +49,23 @@
 
             // 2.定义页面数据
             data:{
-                stuArr:["张三","李四","王八","赵六"]
+                stuArr:[
+                    {
+                        stuNo:1001,
+                        name:'张三',
+                        age:18
+                    },
+                    {
+                        stuNo:1002,
+                        name:'李四',
+                        age:19
+                    },
+                    {
+                        stuNo:1003,
+                        name:'王五',
+                        age:20
+                    }
+                ]
             },
 
             // 3.方法
