@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 第一：下载、导入Vue框架的JS文件 -->
+    <script type="text/javascript" src="../js/vue.min.js"></script>
+
+
+    <style>
+
+    </style>
+</head>
+<body>
+    <!--
+        分支语句（分支结构、条件语句）
+            v-if
+            v-else
+            v-else-if
+
+            v-show
+
+    -->
+
+
+    <!-- 第二：结构化页面，设置挂载点 -View（视图层）-->
+    <div id="app">
+        <!-- 单独if的使用 -->
+        <div v-if="age>=18 && age<60">恭喜，可以网吧</div>
+        <div v-else-if="age>=60 && age<80">对不起，您回家吧</div>
+        <div v-else-if="age>=80">对不起，您只能去老人院</div>
+        <div v-else>报警</div>
+    </div>
+
+    <script>
+        // 第三：创建Vue实例 - 定义相关的参数信息（选项） - {} - view model（控制层）
+        let vm = new Vue({
+            // 1.绑定挂载点
+            el:'#app',
+
+            // 2.定义页面数据
+            data:{
+                age:16
+            },
+
+            // 3.方法
+            methods:{
+
+            }
+
+        }) ;
+
+    </script>
+
+
+
+
+
+
+
+
+</body>
+</html>
