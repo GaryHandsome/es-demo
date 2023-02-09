@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 第一：下载、导入Vue框架的JS文件 -->
+    <script type="text/javascript" src="../js/vue.min.js"></script>
+
+
+    <style>
+
+    </style>
+</head>
+<body>
+    <!--
+        循环语句（循环结构）
+            v-for
+
+            <标签 v-for="迭代变量 in 数组"> 内容 </标签>
+            <标签 v-for="(迭代变量，索引) in 数组"> 内容 </标签>
+
+            <标签 v-for="(属性值,属性名称) in 对象"> 内容 </标签>
+            <标签 v-for="(属性值,属性名称,索引) in 对象"> 内容 </标签>
+
+    -->
+
+
+    <!-- 第二：结构化页面，设置挂载点 -View（视图层）-->
+    <div id="app">
+        <ul>
+            <li v-for="(stuName,index) in stuArr"> {{ stuName }} - <b v-text="index"></b> </li>
+        </ul>
+    </div>
+
+    <script>
+        // 第三：创建Vue实例 - 定义相关的参数信息（选项） - {} - view model（控制层）
+        let vm = new Vue({
+            // 1.绑定挂载点
+            el:'#app',
+
+            // 2.定义页面数据
+            data:{
+                stuArr:["张三","李四","王八","赵六"]
+            },
+
+            // 3.方法
+            methods:{
+
+            }
+        }) ;
+
+    </script>
+
+
+
+
+
+
+
+
+</body>
+</html>
