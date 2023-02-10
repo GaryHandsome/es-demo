@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 第一：下载、导入Vue框架的JS文件 -->
+    <script type="text/javascript" src="../js/vue.min.js"></script>
+
+
+    <style>
+        .success {
+            color:green;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+
+
+    <!-- 第二：结构化页面，设置挂载点 -View（视图层）-->
+    <div id="app">
+        <form>
+            帐号：<input type="text" v-model:value="user"><br/>
+            密码：<input type="text" v-model:value="pass"><br/>
+            <button type="button" @click="login">登录</button>
+        </form>
+
+        <div v-bind:class="{success:isSuccess,error:isError}">{{ msg }}</div>
+    </div>
+
+    <script>
+
+
+        // 第三：创建Vue实例 - 定义相关的参数信息（选项） - {} - view model（控制层）
+        let vm = new Vue({
+            // 1.绑定挂载点
+            el:'#app',
+
+            // 2.定义页面数据
+            data:{
+                user:'',
+                pass:'',
+                msg:'',
+                isSuccess:false,
+                isError:false
+            },
+
+            // 3.方法
+            methods:{
+                login() {
+                    if(this.user=='admin' && this.pass=='123') {
+                        this.isSuccess = true ;
+                        this.isError = false ;
+                        this.msg = "登录成功"
+                    } else {
+                        this.isError = true;
+                        this.isSuccess = false ;
+                        this.msg = "登录失败"
+                    }
+                }
+            }
+        }) ;
+
+    </script>
+
+
+
+
+
+
+
+
+</body>
+</html>

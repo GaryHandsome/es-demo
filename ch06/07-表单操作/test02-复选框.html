@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 第一：下载、导入Vue框架的JS文件 -->
+    <script type="text/javascript" src="../js/vue.min.js"></script>
+
+
+    <style>
+
+    </style>
+</head>
+<body>
+    <!--
+        表单操作 - 使用Vue设置/获取表单数据
+    -->
+
+
+    <!-- 第二：结构化页面，设置挂载点 -View（视图层）-->
+    <div id="app">
+        爱好：
+        <!--
+          使用v-model指定相同的data属性，
+          实现描述同一件事情（如：爱好），
+          并指定不同的value属性值
+        -->
+        <input type="checkbox" value="eat" v-model='hobby'>吃
+        <input type="checkbox" value="drink" v-model='hobby'>喝
+        <input type="checkbox" value="play" v-model='hobby'>玩
+        <input type="checkbox" value="happy" v-model='hobby'>乐
+
+
+        <input type="button" value="提交" @click="aa">
+    </div>
+
+    <script>
+        // 第三：创建Vue实例 - 定义相关的参数信息（选项） - {} - view model（控制层）
+        let vm = new Vue({
+            // 1.绑定挂载点
+            el:'#app',
+
+            // 2.定义页面数据
+            data:{
+                // 通过指定value值，来决定默认选中
+                hobby:['eat','play']
+            },
+
+            // 3.方法
+            methods:{
+                aa() {
+                    console.log("爱好",this.hobby);
+                }
+            }
+
+        }) ;
+
+    </script>
+
+
+
+
+
+
+
+
+</body>
+</html>
