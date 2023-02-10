@@ -54,16 +54,30 @@
 
 
     <!-- 第二：结构化页面，设置挂载点 -View（视图层）-->
-    <div id="app">
-        <div v-size="50">好好学习，天天向上</div>
+    <div id="app1">
+        <!--
+            指定属性值如果是字符串时，默认是引用data选项中的数据
+        -->
+        <div v-color="'red'">好好学习，天天向上</div>
+    </div>
 
+    <div id="app2">
+        <div v-color="'green'">好好学习，天天向上</div>
     </div>
 
     <script>
+        // 自定义全局指令 - 各个Vue实例都可以使用
+        Vue.directive('color',{
+            inserted(el,binding) {
+                el.style.color = binding.value ;
+            }
+        }) ;
+
+
         // 第三：创建Vue实例 - 定义相关的参数信息（选项） - {} - view model（控制层）
-        let vm = new Vue({
+        let vm1 = new Vue({
             // 1.绑定挂载点
-            el:'#app',
+            el:'#app1',
 
             // 2.定义页面数据
             data:{
@@ -75,32 +89,34 @@
 
             },
 
-            // 4.自定义指令
+            // 4.自定义指令（局部）
             directives:{
-                focus: {
-                    // 钩子函数
-                    inserted:function (el) {
-                        // el：表示指令所在的元素节点，
-                        // 可以进行原生JavaScript的操作（DOM、CSS） - 基础很重要
-                        el.focus() ;
-                    }
-                },
-                size:{
-                    // 钩子函数
-                    inserted(el,binding) {
-                        // el：表示指令所在的元素节点，
-                        // 可以进行原生JavaScript的操作（DOM、CSS） - 基础很重要
 
-                        // binding：是一个对象，包含指令相关的信息
-                        // value属性：指令的绑定值
-                        // console.log(binding.value)
-
-                        el.style.fontSize = binding.value + 'px'
-                    }
-                }
             }
 
         }) ;
+
+        let vm2 = new Vue({
+            // 1.绑定挂载点
+            el:'#app2',
+
+            // 2.定义页面数据
+            data:{
+
+            },
+
+            // 3.方法
+            methods:{
+
+            },
+
+            // 4.自定义指令（局部）
+            directives:{
+
+            }
+
+        }) ;
+
 
     </script>
 
