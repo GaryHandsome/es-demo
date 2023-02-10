@@ -29,15 +29,16 @@
                 methods:{},
                 directives: {
                     指令名称: {
-                        // 指令选项
-                    }[,...]
+                        指令选项 - 钩子函数 - 在相应的时机做相应的事情
+                    }
+                    ,...
                 }
             }) ;
 
 
         全局指令语法：
             Vue.directive('指令名称',{
-                // 指令选项
+                // 指令选项 - 钩子函数 - 在相应的时机做相应的事情
             }) ;
 
        注意：
@@ -55,7 +56,7 @@
     <!-- 第二：结构化页面，设置挂载点 -View（视图层）-->
     <div id="app">
 
-        帐号：<input type="text"><br/>
+        帐号：<input type="text" v-focus><br/>
 
         密码：<input type="text"><br/>
 
@@ -82,6 +83,10 @@
             directives:{
                 focus: {
                     // 选项 - 钩子函数
+                    inserted:function (el) {
+                        // el：指令所绑定的元素，可以用来直接操作 DOM
+                        el.focus() ;
+                    }
                 }
             }
 
