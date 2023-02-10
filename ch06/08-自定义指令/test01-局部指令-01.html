@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 第一：下载、导入Vue框架的JS文件 -->
+    <script type="text/javascript" src="../js/vue.min.js"></script>
+
+
+    <style>
+
+    </style>
+</head>
+<body>
+    <!--
+        指令：以v-开始，作为标签属性进行使用，
+            具体某种功能，Vue内置一些指令
+
+        自定义指令：内置的指令不能满足程序员的需求，程序员根据业务、需求自行定义指令进行使用
+
+        在Vue框架中，提供了自定义指令的机制,有以两个分类（作用范围不同）
+            局部指令 ： 只能作用于当前的Vue实例
+            全局指令 : 作用于多个Vue实例
+
+        局部指令语法
+            var app = new Vue({
+                el : '#demo' ,
+                data:{},
+                methods:{},
+                directives: {
+                    指令名称: {
+                        钩子函数 - 在相应的时机做相应的事情
+                    }
+                    ,...
+                }
+            }) ;
+
+
+        全局指令语法：
+            Vue.directive('指令名称',{
+                // 钩子函数 - 在相应的时机做相应的事情
+            }) ;
+
+       注意：
+           1）在自定义指令时，指令名称不需要加v-前缀，
+           而在使用自定义指令时，需要加v-前缀。
+           如：v-自定义指令名称
+
+           2）钩子函数是自定义指令自动调用的函数，
+           根据需求使用不同的钩子函数实现相关的业务功能。
+
+           每个钩子函数都提供了相关参数，便于进行相关的操作，如：el、binding、vnode 和 oldVnode。
+    -->
+
+
+    <!-- 第二：结构化页面，设置挂载点 -View（视图层）-->
+    <div id="app">
+
+        <!-- 使用指令 -->
+        帐号：<input type="text" v-focus><br/>
+
+        密码：<input type="text"><br/>
+
+        <input type="button" value="提交">
+    </div>
+
+    <script>
+        // 第三：创建Vue实例 - 定义相关的参数信息（选项） - {} - view model（控制层）
+        let vm = new Vue({
+            // 1.绑定挂载点
+            el:'#app',
+
+            // 2.定义页面数据
+            data:{
+
+            },
+
+            // 3.方法
+            methods:{
+
+            },
+
+            // 4.自定义指令
+            directives:{
+                focus: {
+                    // 钩子函数
+                    inserted:function (el) {
+                        // el：表示指令所在的元素节点，
+                        // 可以进行原生JavaScript的操作（DOM、CSS） - 基础很重要
+                        el.focus() ;
+                    }
+                }
+            }
+
+        }) ;
+
+    </script>
+
+
+
+
+
+
+
+
+</body>
+</html>
