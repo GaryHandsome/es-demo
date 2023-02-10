@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 第一：下载、导入Vue框架的JS文件 -->
+    <script type="text/javascript" src="../js/vue.min.js"></script>
+
+
+    <style>
+
+    </style>
+</head>
+<body>
+    <!--
+        计算属性 ： 特殊函数（方法）
+            计算属性能更好的提高程序的维护性、阅读性以及性能（缓存）。
+
+        操作
+        第一：定义计算属性
+
+            computed: {
+                计算属性: function() {
+                    ...
+                    return 计算结果 ;
+                }
+            }
+
+        第二：使用计算属性
+            {{ 计算属性 }}
+
+
+    -->
+
+
+    <!-- 第二：结构化页面，设置挂载点 -View（视图层）-->
+    <div id="app">
+        值1：<input v-model.number="num1" /><p />
+
+        值2：<input v-model.number="num2" /><p />
+
+        <!-- 调用计算属性 -->
+        <!-- 注意：计算属性的调用不需要圆括号，而方法的调用必须使用圆括号 -->
+        <!-- 注意：计算属性带缓存功能，也就是说，处理的数据如果不发生改变，计算属性只执行一次 -->
+        结果为：{{ sum }} <p />
+        结果为：{{ sum }} <p />
+
+        <hr/>
+
+        结果为：{{ he() }}<p />
+        结果为：{{ he() }}
+    </div>
+
+    <script>
+        // 第三：创建Vue实例 - 定义相关的参数信息（选项） - {} - view model（控制层）
+        let vm = new Vue({
+            // 1.绑定挂载点
+            el:'#app',
+
+            // 2.定义页面数据
+            data:{
+                num1:'1',
+                num2:'2'
+            },
+
+            // 3.方法
+            methods:{
+                he:function() {
+                    console.log("函数被调用了...")
+                    return this.num1 + this.num2 ;
+                }
+            },
+
+            // 4.自定义指令
+            directives:{
+
+            },
+
+            // 5.计算属性的定义
+            computed: {
+                sum: function() {
+                    console.log("计算属性被调用了...")
+                    return this.num1 + this.num2  ;
+                }
+            }
+
+        }) ;
+
+    </script>
+
+
+
+
+
+
+
+
+</body>
+</html>

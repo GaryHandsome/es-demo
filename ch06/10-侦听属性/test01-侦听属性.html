@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 第一：下载、导入Vue框架的JS文件 -->
+    <script type="text/javascript" src="../js/vue.min.js"></script>
+
+
+    <style>
+
+    </style>
+</head>
+<body>
+    <!--
+        侦听属性 ：侦听某个数据（属性）发生改变时，我们可以做一些业务逻辑处理。
+
+        操作：
+        第一：定义侦听属性
+            watch {
+                属性名称:function([newval,oldVal]) {
+
+                }
+            }
+
+       第二：使用侦听属性（自动）
+
+    -->
+
+
+    <!-- 第二：结构化页面，设置挂载点 -View（视图层）-->
+    <div id="app">
+        值1：<input v-model="num1" /><br/>
+    </div>
+
+    <script>
+        // 第三：创建Vue实例 - 定义相关的参数信息（选项） - {} - view model（控制层）
+        let vm = new Vue({
+            // 1.绑定挂载点
+            el:'#app',
+
+            // 2.定义页面数据
+            data:{
+                num1:'100'
+            },
+
+            // 3.方法
+            methods:{
+
+            },
+
+            // 4.自定义指令
+            directives:{
+
+            },
+
+            // 5.计算属性的定义
+            computed: {
+
+            },
+
+            // 6.侦听属性的定义
+            watch: {
+                num1:function(newVal,oldVal) {
+                    console.log("数据发生改变了，你被侦听到了...")
+
+                    console.log("逻辑、业务处理...")
+
+                    console.log(newVal,oldVal)
+                }
+            }
+
+        }) ;
+
+    </script>
+
+
+
+
+
+
+
+
+</body>
+</html>

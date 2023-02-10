@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 第一：下载、导入Vue框架的JS文件 -->
+    <script type="text/javascript" src="../js/vue.min.js"></script>
+
+
+    <style>
+
+    </style>
+</head>
+<body>
+    <!--
+        计算属性 ： 特殊函数（方法）
+            计算属性能更好的提高程序的维护性、阅读性以及性能（缓存）。
+
+        操作
+        第一：定义计算属性
+
+            computed: {
+                计算属性: function() {
+                    ...
+                    return 计算结果 ;
+                }
+            }
+
+        第二：使用计算属性
+            {{ 计算属性 }}
+
+
+    -->
+
+
+    <!-- 第二：结构化页面，设置挂载点 -View（视图层）-->
+    <div id="app">
+        值1：<input v-model="num1" /><br/>
+        值2：<input v-model="num2" />
+
+        <!--computed实现计算属性-->
+        <h1>两数之后：{{ sum }}</h1>
+
+        <button @click="setDate('10,20')">设置计算属性</button>
+    </div>
+
+    <script>
+        // 第三：创建Vue实例 - 定义相关的参数信息（选项） - {} - view model（控制层）
+        let vm = new Vue({
+            // 1.绑定挂载点
+            el:'#app',
+
+            // 2.定义页面数据
+            data:{
+                num1:'1',
+                num2:'2'
+            },
+
+            // 3.方法
+            methods:{
+                setDate(arg) {
+                    // 给计算属性设置值
+                    // 注意：当给计算属性赋值时，会触发该计算属性的set函数
+                    this.sum = arg ;
+                }
+            },
+
+            // 4.自定义指令
+            directives:{
+
+            },
+
+            // 5.计算属性的定义
+            computed: {
+                // sum(){
+                //     return this.num1 + this.num2 ;
+                // }
+
+                sum:{
+                    set:function(newDate) {
+                        // newDate = 10,20
+                        let arr = newDate.split(",");
+
+                        this.num1 = arr[0] * 1;
+                        this.num2 = arr[1] * 1;
+
+                        console.log("计算属性-setter",newDate)
+                    },
+                    get() {
+                        console.log("计算属性-getter")
+                        return this.num1 + this.num2 ;
+                    }
+                }
+            }
+
+        }) ;
+
+    </script>
+
+
+
+
+
+
+
+
+</body>
+</html>
