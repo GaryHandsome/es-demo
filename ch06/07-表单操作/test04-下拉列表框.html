@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 第一：下载、导入Vue框架的JS文件 -->
+    <script type="text/javascript" src="../js/vue.min.js"></script>
+
+
+    <style>
+
+    </style>
+</head>
+<body>
+    <!--
+        表单操作 - 使用Vue设置/获取表单数据
+    -->
+
+
+    <!-- 第二：结构化页面，设置挂载点 -View（视图层）-->
+    <div id="app">
+        家乡：
+        <!--
+        	使用v-model指定data属性，并指定不同的value属性值
+        -->
+        <select v-model='hometown'>
+            <option value="GD">广东</option>
+            <option value="GN">广南</option>
+            <option value="GX">广西</option>
+            <option value="GB">广北</option>
+        </select>
+
+
+        <input type="button" value="提交" @click="aa">
+    </div>
+
+    <script>
+        // 第三：创建Vue实例 - 定义相关的参数信息（选项） - {} - view model（控制层）
+        let vm = new Vue({
+            // 1.绑定挂载点
+            el:'#app',
+
+            // 2.定义页面数据
+            data:{
+                // 通过指定value值，来决定默认选中
+                hometown:'GX'
+            },
+
+            // 3.方法
+            methods:{
+                aa() {
+                    console.log("家乡",this.hometown)
+                }
+            }
+
+        }) ;
+
+    </script>
+
+
+
+
+
+
+
+
+</body>
+</html>

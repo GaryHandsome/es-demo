@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 第一：下载、导入Vue框架的JS文件 -->
+    <script type="text/javascript" src="../js/vue.min.js"></script>
+
+
+    <style>
+
+    </style>
+</head>
+<body>
+    <!--
+        表单修饰符 - 对表单中的数据进行相关处理
+
+        .number：转换为数值型数据，默认是字符串类型
+        .trim：去除左右空格
+        .lazy：懒加载 - 失去焦点或回车触发
+    -->
+
+
+    <!-- 第二：结构化页面，设置挂载点 -View（视图层）-->
+    <div id="app">
+
+        字符串：<input type="text" v-model='data1'><br/>
+
+        <!-- 转换为Number类型的数据 -->
+        数值：<input type="text" v-model.number='data2'><br/>
+
+        <input type="button" value="提交" @click='aa'>
+
+    </div>
+
+    <script>
+        // 第三：创建Vue实例 - 定义相关的参数信息（选项） - {} - view model（控制层）
+        let vm = new Vue({
+            // 1.绑定挂载点
+            el:'#app',
+
+            // 2.定义页面数据
+            data:{
+                // 通过指定value值，来决定默认选中
+                data1:'',
+                data2:''
+            },
+
+            // 3.方法
+            methods:{
+                aa() {
+                    console.log("第一个数据",typeof(this.data1),this.data1+1)
+                    console.log("第二个数据",typeof(this.data2),this.data2+1)
+                }
+            }
+
+        }) ;
+
+    </script>
+
+
+
+
+
+
+
+
+</body>
+</html>
