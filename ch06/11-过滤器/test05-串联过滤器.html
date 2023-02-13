@@ -54,8 +54,10 @@
 
     <!-- 第二：结构化页面，设置挂载点 -View（视图层）-->
     <div id="app">
-        <!-- 2.使用过滤器 -->
-        消息内容为：{{ message | helloFilter }}
+        <!-- 2.使用过滤器 - 串联的方式使用 -->
+        <!-- 首先使用第一个过滤器进行过滤，把过滤的结果传递给第二个过滤器进行过滤处理，以此类推-->
+        <!-- 同时，原始数据不会改变 -->
+        消息内容为：{{ message | lowerFilter | firstLetterUpperFilter }}
         <p/>
 
         <!--
@@ -66,15 +68,6 @@
     </div>
 
     <script>
-        // 1：定义过滤器 - 全局过滤器 - 作用于全部的Vue实例
-        // 注意：通过回调函数的参数获取过滤的数据及参数
-        Vue.filter('helloFilter', function (arg) {
-            console.log("触发了过滤器,实现相关的功能")
-            console.log("需要过滤的原始数据为：",arg)
-            return arg.substring(0,5) ;
-        })
-
-
         // 第三：创建Vue实例 - 定义相关的参数信息（选项） - {} - view model（控制层）
         let vm = new Vue({
             // 1.绑定挂载点
@@ -82,7 +75,7 @@
 
             // 2.定义页面数据
             data:{
-                message:'hello,world'
+                message:'HELLO,wORld'
             },
 
             // 3.方法
@@ -103,6 +96,18 @@
             // 6.侦听属性的定义
             watch: {
 
+            },
+
+            // 7.过滤器的定义 - 局部过滤器 - 作用于全部的Vue实例
+            filters:{
+                // 1.字母转换小写
+                lowerFilter : function(arg) {
+                    return arg.toLowerCase() ;
+                },
+                // 2.单词第一个字母转换大写
+                firstLetterUpperFilter:function(arg) {
+                    return arg.substring(0,1).toUpperCase() + arg.substring(1);
+                }
             }
 
         }) ;

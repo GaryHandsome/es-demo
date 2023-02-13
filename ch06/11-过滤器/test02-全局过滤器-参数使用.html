@@ -39,23 +39,23 @@
 
         第二：使用过滤器
         语法一：双花括号插值
-            {{ 数据 | 过滤器1 | ... }}
+            {{ 数据 | 过滤器1(参数1,...) | ... }}
 
         例如：调用过滤器capitalize，对message的值进行格式化
-            {{ message | capitalize | ... }}
+            {{ message | capitalize(实参数据1,..) | ... }}
 
        语法二：v-bind表达式
-            <标签 v-bind:属性="数据 | 过滤器1 | ..."></标签>
+            <标签 v-bind:属性="数据 | 过滤器1(参数1,...) | ..."></标签>
 
        例如：调用过滤器formatId，对rawId的值进行格式化
-            <div v-bind:id="rawId | formatId | ..."></div>
+            <div v-bind:id="rawId | formatId(实参数据1,..) | ..."></div>
     -->
 
 
     <!-- 第二：结构化页面，设置挂载点 -View（视图层）-->
     <div id="app">
-        <!-- 2.使用过滤器 -->
-        消息内容为：{{ message | helloFilter }}
+        <!-- 2.使用过滤器的同时，传递数据 -->
+        消息内容为：{{ message | helloFilter('AA','BB','CC') }}
         <p/>
 
         <!--
@@ -68,10 +68,16 @@
     <script>
         // 1：定义过滤器 - 全局过滤器 - 作用于全部的Vue实例
         // 注意：通过回调函数的参数获取过滤的数据及参数
-        Vue.filter('helloFilter', function (arg) {
-            console.log("触发了过滤器,实现相关的功能")
-            console.log("需要过滤的原始数据为：",arg)
-            return arg.substring(0,5) ;
+        // 其中，第一个参数获取的是过滤器过滤的数据
+        // 第二个参数获取的是过滤器传递过来的第一个实参
+        // 第三个参数获取的是过滤器传递过来的第二个实参
+        // 以此类推..
+        Vue.filter('helloFilter', function (arg1,arg2,arg3,arg4) {
+            console.log("第一个参数：",arg1)
+            console.log("第二个参数：",arg2)
+            console.log("第三个参数：",arg3)
+            console.log("第四个参数：",arg4)
+            return arg1.substring(0,5) ;
         })
 
 
