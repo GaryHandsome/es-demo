@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 第一：下载、导入Vue框架的JS文件 -->
+    <script type="text/javascript" src="../js/vue.min.js"></script>
+
+
+    <style>
+
+    </style>
+</head>
+<body>
+    <!--
+        在Vue生命周期中（三大阶段）提供了相应的钩子函数，
+        程序利用相应的钩子函数可以在Vue生命周期中某个阶段做一些处理
+
+            created() : 组件的prop/data/methods已创建好，处于可用状态，但组件的模板结构尚未生成
+
+                在开发中，我们可以通过created()发起异步请求，
+                拉取后台数据，赋值data选项中，供页面回显学数据
+
+            mounted() :
+                内存中的HTML结构，成功渲染到浏览器中，
+                因此，在这里可以正常的访问DOM元素。
+    -->
+
+
+    <!-- 第二：结构化页面，设置挂载点 -View（视图层）-->
+    <div id="app">
+       内容：{{ message }}
+    </div>
+
+    <script>
+
+
+        // 第三：创建Vue实例 - 定义相关的参数信息（选项） - {} - view model（控制层）
+        let vm = new Vue({
+            // 1.绑定挂载点
+            // el:'#app',
+
+            // 2.定义页面数据
+            data:{
+                message:'hello,world'
+            },
+
+            // 3.方法
+            methods:{
+
+            },
+
+            // 4.自定义指令
+            directives:{
+
+            },
+
+            // 5.计算属性的定义
+            computed: {
+
+            },
+
+            // 6.侦听属性的定义
+            watch: {
+
+            },
+
+            // 7.过滤器的定义
+            filters:{
+
+            },
+
+            // 8.钩子函数的定义
+            created() {
+                console.log("Vue实例已经完成了创建 - ajax")
+            },
+            mounted() {
+                console.log("mounted...")
+            }
+        }) ;
+
+        // 绑定挂载点
+        vm.$mount("#app") ;
+
+
+    </script>
+
+
+
+
+
+
+
+
+</body>
+</html>
