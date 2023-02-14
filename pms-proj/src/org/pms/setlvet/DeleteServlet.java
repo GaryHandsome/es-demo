@@ -16,26 +16,30 @@ import java.io.PrintWriter;
 import java.util.List;
 
 /**
- * 查询所有商品 - 商品列表
+ * 删除商品
  *
  * @Date 2023-02-14
  * @Author zqx
  */
-@WebServlet("/QueryAllServlet")
-public class QueryAllServlet extends HttpServlet {
+@WebServlet("/DeleteServlet")
+public class DeleteServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // 第一：获取浏览器传递过来的数据 - 合法性验证（前、后）
+        String id = req.getParameter("pid");
 
         // 第二：业务处理 - 数据库（查询、持久化数据） - DAO
         ProductDao productDao = new ProductDaoImpl();
-        List<Product> list = productDao.selectAll();
+        int row = productDao.delete(id) ;
 
         // 把处理的数据封装到统一的接口中
         ResponseData responseData = new ResponseData();
-        responseData.setCode(200);
-        responseData.setMsg("success");
-        responseData.setData(list);
+        responseData.setMsg("删除成功");
+
+        if(row!=1) {
+            responseData.setMsg("删除失败");
+            responseData.setCode(500);
+        }
 
         String json = new Gson().toJson(responseData);
 

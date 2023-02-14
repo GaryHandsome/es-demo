@@ -36,19 +36,36 @@ let vm = new Vue({
         // 删除商品
         del(pid) {
             if(confirm('您真的要删除此商品吗？')) {
-                // ajax
-                console.log("确定" , pid) ;
+                // $.get("DeleteServlet","pid="+pid,function( res ){
+                //     console.log("OK....")
+                // },"json") ;
 
+                $.ajax("DeleteServlet", {
+                    type: 'get',
+                    data: { "pid": pid },
+                    dataType: 'json',
+                    success: function (res) {
+                        if(res.code==200) {
+                            vm.productList = vm.productList.filter((p) => {
+                                return p.id != pid;
+                            });
+                        }
+                    },
+                    error:function ( e ) {
+                        console.log("error",e)
+                    }
+                });
             }
         }
     },
 
     // 4.生命周期函数（钩子函数）
     created() {
+        console.log("created....")
         // let that = this ;
         // 发起异步请求，拉取数据，赋值到data选项定义的变量 - 数据驱动视图
-        $.get("QueryAllServlet",function( list ){
-            vm.productList = list ;
+        $.get("QueryAllServlet",function( res ){
+            vm.productList = res.data ;
         }) ;
 
         // console.log(vm.productList)
