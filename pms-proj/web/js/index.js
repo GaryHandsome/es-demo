@@ -70,7 +70,16 @@ let vm = new Vue({
 
             // 第二：发起异步请求 - 如何获取表单中的数据呢？ v-model
             $.post("AddServlet",this.product,function( res ){
-                console.log("是否成功",res)
+                if(res.code==200) {
+                    // 把添加的商品数据添加到数组中，实现数据驱动页面
+                    vm.productList.push(vm.product) ;
+
+                    // 清空表单
+                    vm.product = {} ;
+
+                    // 编号文本框聚焦
+                    vm.$refs.pid.focus() ;
+                }
             }) ;
         }
     },
