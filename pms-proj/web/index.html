@@ -31,7 +31,7 @@
                 <td v-color:background="p.count<2?'red':'green'">{{ p.count }}</td>
                 <td>{{ p.count * p.price | moneyFilter('￥',2) }}</td>
                 <td>{{ p.desc }}</td>
-                <td><span @click="del(p.id)">删除</span> | <span>修改</span></td>
+                <td><span @click="del(p.id)">删除</span> | <span @click="show(p,index)">修改</span></td>
             </tr>
 
             <!-- xx:{{ productList }}-->

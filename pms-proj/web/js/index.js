@@ -29,7 +29,11 @@ let vm = new Vue({
     // 2.定义数据 - 数据库 - ajax
     data:{
         productList:[],
-        product:{}
+        product:{},
+        // 用于标识是否修改数据，不是修改数据就是添加数据
+        isUpdate:false,
+        // 修改数组元素的下标索引
+        updateIndex:-1
     },
 
 
@@ -64,35 +68,54 @@ let vm = new Vue({
 
         // 添加商品
         add() {
-            // 第一：获取表单中的数据
-            this.product.image = 'default.png' ;
-            console.log(JSON.stringify(this.product))
+            if(vm.isUpdate==true) {
+                // 修改操作
+                // 第一：获取表单中的数据
+                this.product.image = 'default.png' ;
 
-            // 第二：发起异步请求 - 如何获取表单中的数据呢？ v-model
-            $.post("AddServlet",this.product,function( res ){
-                if(res.code==200) {
-                    // 把添加的商品数据添加到数组中，实现数据驱动页面
-                    vm.productList.push(vm.product) ;
+                // 第二：发起异步请求
+                $.post("UpdateServlet",this.product,function (res){
+                    // 把修改的商品数据更新到数组中，实现数据驱动页面
+                    vm.productList.splice(vm.updateIndex,1,vm.product) ;
+                }) ;
 
-                    // 清空表单
-                    vm.product = {} ;
+            } else {
+                // 添加操作
+                // 第一：获取表单中的数据
+                this.product.image = 'default.png' ;
 
-                    // 编号文本框聚焦
-                    vm.$refs.pid.focus() ;
-                }
-            }) ;
+                // 第二：发起异步请求 - 如何获取表单中的数据呢？ v-model
+                $.post("AddServlet",this.product,function( res ){
+                    if(res.code==200) {
+                        // 把添加的商品数据添加到数组中，实现数据驱动页面
+                        vm.productList.push(vm.product) ;
+
+                        // 清空表单
+                        vm.product = {} ;
+
+                        // 编号文本框聚焦
+                        vm.$refs.pid.focus() ;
+                    }
+                }) ;
+            }
+        } ,
+
+        // 展示修改的商品
+        show( p,index ) {
+            // 创建一个新的对象，避免数据修改实时性
+            let updateProduct = Object.assign({}, p)
+            vm.product = updateProduct ;
+            vm.isUpdate = true ;
+            vm.updateIndex = index ;
         }
     },
 
     // 4.生命周期函数（钩子函数）
     created() {
-        console.log("created....")
         // let that = this ;
         // 发起异步请求，拉取数据，赋值到data选项定义的变量 - 数据驱动视图
         $.get("QueryAllServlet",function( res ){
             vm.productList = res.data ;
         }) ;
-
-        // console.log(vm.productList)
     }
 }) ;
