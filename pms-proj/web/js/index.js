@@ -66,7 +66,7 @@ let vm = new Vue({
             }
         },
 
-        // 添加商品
+        // 添加/修改商品
         add() {
             if(vm.isUpdate==true) {
                 // 修改操作
@@ -77,6 +77,9 @@ let vm = new Vue({
                 $.post("UpdateServlet",this.product,function (res){
                     // 把修改的商品数据更新到数组中，实现数据驱动页面
                     vm.productList.splice(vm.updateIndex,1,vm.product) ;
+
+                    // 还原添加表单
+                    vm.cls() ;
                 }) ;
 
             } else {
@@ -107,6 +110,15 @@ let vm = new Vue({
             vm.product = updateProduct ;
             vm.isUpdate = true ;
             vm.updateIndex = index ;
+            this.$refs.pid.readOnly = true;
+        },
+
+        // 清空表单，还原为添加表单
+        cls() {
+            this.isUpdate = false ;
+            this.product = {} ;
+            this.$refs.pid.readOnly = false;
+            this.$refs.pid.focus();
         }
     },
 
