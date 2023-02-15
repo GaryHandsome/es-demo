@@ -13,3 +13,14 @@
 7.Servlet程序 - 业务接口 - 业务接口实现
 
 8.页面设计 - ajax - vue
+
+
+
+数据存放作用域对象 - jsp + jstl + el
+
+数据以JSON字符串的方式传递（ResponseData） -  html + vue
+
+
+
+
+

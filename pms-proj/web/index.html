@@ -37,6 +37,20 @@
             <!-- xx:{{ productList }}-->
         </table>
 
+        <div style="width: 80%;border:1px solid red;margin: 30px auto;padding: 30px;box-sizing: border-box">
+            <h1>商品添加</h1>
+
+            <form>
+                商品编号：<input type="text" v-model="product.id"/><p/>
+                商品名称：<input type="text" v-model="product.name"/><p/>
+                商品价格：<input type="text" v-model="product.price"/><p/>
+                商品库存：<input type="text" v-model="product.count"/><p/>
+                商品描述：<input type="text" v-model="product.desc"/><p/>
+                <button type="button" @click="add">提交</button>
+            </form>
+
+        </div>
+
 
 
     </div>

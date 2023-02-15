@@ -28,8 +28,10 @@ let vm = new Vue({
 
     // 2.定义数据 - 数据库 - ajax
     data:{
-        productList:[]
+        productList:[],
+        product:{}
     },
+
 
     // 3.方法定义 - 响应事件
     methods:{
@@ -49,6 +51,8 @@ let vm = new Vue({
                             vm.productList = vm.productList.filter((p) => {
                                 return p.id != pid;
                             });
+                        } else {
+                            alert("删除失败")
                         }
                     },
                     error:function ( e ) {
@@ -56,6 +60,18 @@ let vm = new Vue({
                     }
                 });
             }
+        },
+
+        // 添加商品
+        add() {
+            // 第一：获取表单中的数据
+            this.product.image = 'default.png' ;
+            console.log(JSON.stringify(this.product))
+
+            // 第二：发起异步请求 - 如何获取表单中的数据呢？ v-model
+            $.post("AddServlet",this.product,function( res ){
+                console.log("是否成功",res)
+            }) ;
         }
     },
 
