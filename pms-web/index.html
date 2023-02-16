@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商品管理系统</title>
+    <!-- 第一：下载、导入Vue框架的JS文件 -->
+    <script src="js/vue.js" type="text/javascript"></script>
+    <script src="js/jquery-1.12.4.min.js" type="text/javascript"></script>
+</head>
+<body>
+    <!--  <h1>Java + JavaWeb + 数据库 + html + js + css + BS + LayUI + Vant + uni-app + Ajax + Vue</h1>-->
+    <!-- 第二：结构化页面 - 设置挂载点 -->
+    <div id="app">
+        <h1 align="center">商品列表</h1>
+
+        <table border="1" align="center" width="80%">
+            <tr>
+                <th>编号</th>
+                <th>名称</th>
+                <th>价格</th>
+                <th>库存</th>
+                <th>总价</th>
+                <th>描述</th>
+                <th>操作</th>
+            </tr>
+
+            <tr v-if="productList.length==0">
+                <td colspan="7" align="center" v-color:color="'red'">数据为空</td>
+            </tr>
+
+            <tr v-else align="center" v-for="(p,index) in productList" :key="index">
+                <td>{{ p.id }}</td>
+                <td>{{ p.name }}</td>
+                <td>{{ p.price }}</td>
+                <td v-color:background="p.count<2?'red':'green'">{{ p.count }}</td>
+                <td>{{ p.count * p.price | moneyFilter('￥',2) }}</td>
+                <td>{{ p.desc }}</td>
+                <td><span @click="del(p.id)">删除</span> | <span @click="show(p,index)">修改</span></td>
+            </tr>
+
+            <!-- xx:{{ productList }}-->
+        </table>
+
+        <div style="width: 80%;border:1px solid red;margin: 30px auto;padding: 30px;box-sizing: border-box" @dblclick="cls">
+            <h1>{{ isUpdate ? '商品修改':'商品添加' }}</h1>
+
+            <form>
+                商品编号：<input type="text" v-model="product.id" ref="pid"/><p/>
+                商品名称：<input type="text" v-model="product.name"/><p/>
+                商品价格：<input type="text" v-model="product.price"/><p/>
+                商品库存：<input type="text" v-model="product.count"/><p/>
+                商品描述：<input type="text" v-model="product.desc"/><p/>
+                <button type="button" @click="add">提交</button>
+            </form>
+
+        </div>
+
+
+
+    </div>
+
+    <script src="js/index.js" type="text/javascript"></script>
+
+</body>
+</html>
